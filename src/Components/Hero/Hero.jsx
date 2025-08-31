@@ -10,6 +10,7 @@ import CV from "/src/assets/Arragen_Basilio_CV.pdf";
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const discordUsername = "tomataur.";
 
   const handleDownloadCV = () => {
@@ -38,10 +39,59 @@ const Hero = () => {
     }, 500);
   };
 
+  const handleViewProject = () => {
+    // Add functionality to view project details
+    alert("View project details functionality would be implemented here");
+  };
+
+  // Timeline Component
+  const TimelineElement = ({ index }) => (
+    <div
+      className="flex flex-col items-center mr-3 mt-2"
+      style={{ width: "11px", height: "80px" }}
+    >
+      {/* Top Circle */}
+      <div
+        style={{
+          width: "11px",
+          height: "11px",
+          borderRadius: "50%",
+          backgroundColor: hoveredIndex === index ? "#24FF45" : "transparent",
+          border: "2px solid #EFEFEF",
+          transition: "background-color 0.3s ease",
+        }}
+      />
+
+      {/* Connecting Line */}
+      <div
+        style={{
+          width: "1.5px",
+          height: "50px",
+          borderRadius: "15px",
+          backgroundColor: "#EFEFEF",
+          margin: "5px ",
+        }}
+      />
+
+      {/* Bottom Circle */}
+      <div
+        style={{
+          width: "11px",
+          height: "11px",
+          borderRadius: "50%",
+          backgroundColor:
+            hoveredIndex === index + 1 ? "#24FF45" : "transparent",
+          border: "2px solid #EFEFEF",
+          transition: "background-color 0.3s ease",
+        }}
+      />
+    </div>
+  );
+
   return (
     <section className="about min-h-screen flex flex-col items-center bg-[#222D23]">
       <div
-        className="header-container flex items-left justify-left mt-30"
+        className="header-container flex items-left justify-left mt-10"
         style={{
           width: "800px",
           height: "180px",
@@ -69,11 +119,11 @@ const Hero = () => {
           >
             Arragen A. Basilio
           </h1>
-          <div className="education flex items-center mb-2.5">
+          <div className="education flex items-center mb-3">
             <img
               src={Education}
               alt="Education"
-              style={{ width: "25px", marginRight: "8px" }}
+              style={{ width: "20px", marginRight: "8px" }}
             />
             <p
               style={{
@@ -90,7 +140,7 @@ const Hero = () => {
             <img
               src={Location}
               alt="Location"
-              style={{ width: "25px", marginRight: "8px" }}
+              style={{ width: "20px", marginRight: "8px" }}
             />
             <p
               style={{
@@ -226,13 +276,13 @@ const Hero = () => {
       </div>
 
       {/* New EXPERIENCE and PROJECT containers */}
-      <div className="flex mt-5 gap-5" style={{ width: "800px" }}>
+      <div className="flex mt-3 gap-3" style={{ width: "800px" }}>
         {/* EXPERIENCE Container */}
         <div
           className="experience-container flex flex-col bg-[#2A3A2B]"
           style={{
             width: "350px",
-            height: "164px",
+            height: "180px",
             border: "#EFEFEF solid 1px",
             borderRadius: "10px",
             padding: "20px",
@@ -250,27 +300,143 @@ const Hero = () => {
           >
             EXPERIENCE
           </h2>
-          <p
-            style={{
-              fontFamily: "Readex Pro, sans-serif",
-              fontWeight: "300",
-              fontSize: "15px",
-              color: "#EFEFEF",
-              lineHeight: "1.6",
-            }}
-          >
-            {/* Add your experience content here */}
-            Currently seeking opportunities to apply my skills and gain
-            real-world experience in web development and software engineering.
-          </p>
+
+          {/* Timeline Component */}
+          <div className="flex items-start mb-3">
+            {/* Programmatic Timeline Element */}
+            <TimelineElement index={0} />
+
+            {/* Experience Content */}
+            <div className="mt-0.6 flex-1">
+              <div className="flex justify-between items-start">
+                <div
+                  className="experience-item flex-1 mr-3"
+                  onMouseEnter={() => setHoveredIndex(0)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  style={{ transition: "color 0.3s ease" }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "500",
+                      fontSize: "15px",
+                      color: "#EFEFEF",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
+                    IT Intern
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "11px",
+                      color: "#EFEFEF",
+                      lineHeight: "1.4",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
+                    Am-Europharma Corporation
+                  </p>
+                </div>
+
+                {/* Year Pill */}
+                <div
+                  className="mt-3"
+                  style={{
+                    width: "37px",
+                    height: "17px",
+                    borderRadius: "50px",
+                    backgroundColor: "transparent",
+                    border: "1px solid #EFEFEF",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "9px",
+                      color: "#EFEFEF",
+                    }}
+                  >
+                    2025
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-start mt-8.5">
+                <div
+                  className="experience-item flex-1 mr-3"
+                  onMouseEnter={() => setHoveredIndex(1)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  style={{ transition: "color 0.3s ease" }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "500",
+                      fontSize: "15px",
+                      color: "#EFEFEF",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
+                    BS Information Technology
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "11px",
+                      color: "#EFEFEF",
+                      lineHeight: "1.4",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
+                    University of Perpetual Help System DALTA
+                  </p>
+                </div>
+
+                {/* Year Pill */}
+                <div
+                  className="mt-3"
+                  style={{
+                    width: "37px",
+                    height: "17px",
+                    borderRadius: "50px",
+                    backgroundColor: "transparent",
+                    border: "1px solid #EFEFEF",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "9px",
+                      color: "#EFEFEF",
+                    }}
+                  >
+                    2025
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* PROJECT Container */}
         <div
-          className="project-container flex flex-col bg-[#2A3A2B]"
+          className="project-container flex flex-col bg-[#2A3A2B] mb-5"
           style={{
             width: "435px",
-            height: "164px",
+            height: "180px",
             border: "#EFEFEF solid 1px",
             borderRadius: "10px",
             padding: "20px",
@@ -288,19 +454,76 @@ const Hero = () => {
           >
             PROJECT
           </h2>
-          <p
-            style={{
-              fontFamily: "Readex Pro, sans-serif",
-              fontWeight: "300",
-              fontSize: "15px",
-              color: "#EFEFEF",
-              lineHeight: "1.6",
-            }}
-          >
-            {/* Add your project content here */}
-            Working on personal projects to enhance my skills in React, Node.js,
-            and other modern web technologies.
-          </p>
+
+          {/* Project Item */}
+          <div className="project-item">
+            <div className="flex justify-between items-center mb-2">
+              <h3
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "500",
+                  fontSize: "15px",
+                  color: "#EFEFEF",
+                }}
+              >
+                eXBatch Enrolment System
+              </h3>
+
+              {/* View Button with Icon */}
+              <button
+                onClick={handleViewProject}
+                className="flex items-center transition-all duration-300 hover:opacity-80 hover:scale-105"
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "12px",
+                    color: "#EFEFEF",
+                    marginRight: "4px",
+                  }}
+                >
+                  View
+                </span>
+                {/* Using a simple arrow as ion-icon replacement */}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 512 512"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ marginTop: "2px" }}
+                >
+                  <path
+                    d="M184.6 408.3c-7.8 7.8-20.5 7.8-28.3 0s-7.8-20.5 0-28.3L297.4 256 156.3 114.9c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l152 152c7.8 7.8 7.8 20.5 0 28.3l-152 152z"
+                    fill="#EFEFEF"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <p
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "300",
+                fontSize: "11px",
+                color: "#EFEFEF",
+                lineHeight: "1.6",
+                textAlign: "justify",
+              }}
+            >
+              A web-based application designed to streamline the enrolment of
+              batch numbers for Toll-supplied materials into the EXACT system.
+              Offering role-based access for easy submission, approval, and
+              tracking.
+            </p>
+          </div>
         </div>
       </div>
     </section>
