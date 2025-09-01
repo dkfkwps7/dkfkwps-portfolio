@@ -572,9 +572,11 @@ const Hero = () => {
                 color: "#EFEFEF",
                 textAlign: "center",
                 marginBottom: "15px",
+                lineHeight: "1.2",
               }}
             >
-              Development Tools
+              Development <br />
+              Tools
             </h3>
             <div className="flex flex-wrap justify-center gap-2">
               {[
@@ -616,7 +618,7 @@ const Hero = () => {
               backgroundColor: "#2F4530",
               borderRadius: "10px",
               border: "#EFEFEF solid 1px",
-              padding: "10px",
+              padding: "15px",
               marginBottom: "15px",
             }}
           >
@@ -632,7 +634,161 @@ const Hero = () => {
             >
               Frontend
             </h3>
-            {/* Content will go here */}
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                HTML
+              </span>
+              <div
+                style={{
+                  width: "70px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "60px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                CSS
+              </span>
+              <div
+                style={{
+                  width: "70px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "60px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                JavaScript
+              </span>
+              <div
+                style={{
+                  width: "70px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "50px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                Tailwind CSS
+              </span>
+              <div
+                style={{
+                  width: "70px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "55px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                React.js
+              </span>
+              <div
+                style={{
+                  width: "70px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "40px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
           </div>
 
           {/* Backend Container */}
