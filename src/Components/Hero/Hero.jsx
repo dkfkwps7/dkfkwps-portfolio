@@ -525,8 +525,9 @@ const Hero = () => {
       </div>
 
       {/* TECH STACK SECTION */}
+      {/* TECH STACK SECTION */}
       <div
-        className="about-container flex flex-col bg-[#2A3A2B] mb-3"
+        className="tech-stack-container flex flex-col bg-[#2A3A2B] mb-3"
         style={{
           width: "800px",
           height: "360px",
@@ -542,11 +543,154 @@ const Hero = () => {
             fontWeight: "600",
             fontSize: "20px",
             color: "#EFEFEF",
-            marginBottom: "5px",
+            marginBottom: "15px",
           }}
         >
           TECH STACK
         </h2>
+
+        {/* Tech Stack Containers */}
+        <div className="flex flex-wrap justify-between">
+          {/* Development Tools Container */}
+          <div
+            className="tech-category"
+            style={{
+              width: "180px",
+              height: "220px",
+              backgroundColor: "#2F4530",
+              borderRadius: "10px",
+              border: "#EFEFEF solid 1px",
+              padding: "15px",
+              marginBottom: "15px",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "500",
+                fontSize: "14px",
+                color: "#EFEFEF",
+                textAlign: "center",
+                marginBottom: "15px",
+              }}
+            >
+              Development Tools
+            </h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {[
+                "VS Code",
+                "XAMPP",
+                "Windsurf",
+                "Cursor",
+                "Visual Studio",
+                "Git",
+                "Pycharm",
+                "Github",
+              ].map((dev) => (
+                <span
+                  key={dev}
+                  className="dev-tag"
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                    border: "1px solid #EFEFEF",
+                    borderRadius: "3px",
+                    padding: "2px 8px",
+                    display: "inline-block",
+                  }}
+                >
+                  {dev}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Frontend Container */}
+          <div
+            className="tech-category"
+            style={{
+              width: "180px",
+              height: "220px",
+              backgroundColor: "#2F4530",
+              borderRadius: "10px",
+              border: "#EFEFEF solid 1px",
+              padding: "10px",
+              marginBottom: "15px",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "500",
+                fontSize: "14px",
+                color: "#EFEFEF",
+                textAlign: "center",
+                marginBottom: "10px",
+              }}
+            >
+              Frontend
+            </h3>
+            {/* Content will go here */}
+          </div>
+
+          {/* Backend Container */}
+          <div
+            className="tech-category"
+            style={{
+              width: "180px",
+              height: "220px",
+              backgroundColor: "#2F4530",
+              borderRadius: "10px",
+              border: "#EFEFEF solid 1px",
+              padding: "10px",
+              marginBottom: "15px",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "500",
+                fontSize: "14px",
+                color: "#EFEFEF",
+                textAlign: "center",
+                marginBottom: "10px",
+              }}
+            >
+              Backend
+            </h3>
+            {/* Content will go here */}
+          </div>
+
+          {/* Design Tools Container */}
+          <div
+            className="tech-category"
+            style={{
+              width: "180px",
+              height: "220px",
+              backgroundColor: "#2F4530",
+              borderRadius: "10px",
+              border: "#EFEFEF solid 1px",
+              padding: "10px",
+              marginBottom: "15px",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "500",
+                fontSize: "14px",
+                color: "#EFEFEF",
+                textAlign: "center",
+                marginBottom: "10px",
+              }}
+            >
+              Design Tools
+            </h3>
+            {/* Content will go here */}
+          </div>
+        </div>
       </div>
     </section>
   );
