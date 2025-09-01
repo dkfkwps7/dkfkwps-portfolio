@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Profile from "/src/assets/Profile.svg";
 import TempProfile from "/src/assets/TempProfile.svg";
 import Education from "/src/assets/Icons/Education.svg";
@@ -7,6 +8,16 @@ import Instagram from "/src/assets/Icons/Instagram.svg";
 import Github from "/src/assets/Icons/Github.svg";
 import Discord from "/src/assets/Icons/Discord.svg";
 import CV from "/src/assets/Arragen_Basilio_CV.pdf";
+
+const ScrollToTop = () => {
+  const { pathname } = window.location;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
@@ -39,18 +50,11 @@ const Hero = () => {
     }, 500);
   };
 
-  const handleViewProject = () => {
-    // Add functionality to view project details
-    alert("View project details functionality would be implemented here");
-  };
-
-  // Timeline Component
   const TimelineElement = ({ index }) => (
     <div
       className="flex flex-col items-center mr-3 mt-2"
       style={{ width: "11px", height: "80px" }}
     >
-      {/* Top Circle */}
       <div
         style={{
           width: "11px",
@@ -62,7 +66,6 @@ const Hero = () => {
         }}
       />
 
-      {/* Connecting Line */}
       <div
         style={{
           width: "1.5px",
@@ -73,7 +76,6 @@ const Hero = () => {
         }}
       />
 
-      {/* Bottom Circle */}
       <div
         style={{
           width: "11px",
@@ -90,8 +92,9 @@ const Hero = () => {
 
   return (
     <section className="about min-h-screen flex flex-col items-center bg-[#222D23]">
+      {/* HEADER SECTION */}
       <div
-        className="header-container flex items-left justify-left mt-10"
+        className="header-container flex items-left justify-left mt-10 mb-10"
         style={{
           width: "800px",
           height: "180px",
@@ -219,11 +222,12 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* ABOUT SECTION */}
       <div
-        className="about-container flex flex-col bg-[#2A3A2B] mt-10"
+        className="about-container flex flex-col bg-[#2A3A2B]"
         style={{
           width: "800px",
-          height: "380px",
+          height: "300px",
           border: "#EFEFEF solid 1px",
           borderRadius: "10px",
           padding: "20px",
@@ -246,9 +250,9 @@ const Hero = () => {
           style={{
             fontFamily: "Readex Pro, sans-serif",
             fontWeight: "300",
-            fontSize: "15px",
+            fontSize: "13.5px",
             color: "#EFEFEF",
-            lineHeight: "1.6",
+            lineHeight: "1.3",
             textAlign: "justify",
           }}
         >
@@ -275,13 +279,13 @@ const Hero = () => {
         </p>
       </div>
 
-      {/* New EXPERIENCE and PROJECT containers */}
+      {/* EXPERIENCE AND PROJECT SECTION */}
+      {/* EXPERIENCE CONTAINER */}
       <div className="flex mt-3 gap-3" style={{ width: "800px" }}>
-        {/* EXPERIENCE Container */}
         <div
           className="experience-container flex flex-col bg-[#2A3A2B]"
           style={{
-            width: "350px",
+            width: "390px",
             height: "180px",
             border: "#EFEFEF solid 1px",
             borderRadius: "10px",
@@ -301,12 +305,9 @@ const Hero = () => {
             EXPERIENCE
           </h2>
 
-          {/* Timeline Component */}
           <div className="flex items-start mb-3">
-            {/* Programmatic Timeline Element */}
             <TimelineElement index={0} />
 
-            {/* Experience Content */}
             <div className="mt-0.6 flex-1">
               <div className="flex justify-between items-start">
                 <div
@@ -340,7 +341,6 @@ const Hero = () => {
                   </p>
                 </div>
 
-                {/* Year Pill */}
                 <div
                   className="mt-3"
                   style={{
@@ -400,7 +400,6 @@ const Hero = () => {
                   </p>
                 </div>
 
-                {/* Year Pill */}
                 <div
                   className="mt-3"
                   style={{
@@ -431,11 +430,11 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* PROJECT Container */}
+        {/* PROJECT SECTION */}
         <div
-          className="project-container flex flex-col bg-[#2A3A2B] mb-5"
+          className="project-container flex flex-col bg-[#2A3A2B] mb-3"
           style={{
-            width: "435px",
+            width: "410px",
             height: "180px",
             border: "#EFEFEF solid 1px",
             borderRadius: "10px",
@@ -455,7 +454,6 @@ const Hero = () => {
             PROJECT
           </h2>
 
-          {/* Project Item */}
           <div className="project-item">
             <div className="flex justify-between items-center mb-2">
               <h3
@@ -469,15 +467,15 @@ const Hero = () => {
                 eXBatch Enrolment System
               </h3>
 
-              {/* View Button with Icon */}
-              <button
-                onClick={handleViewProject}
+              <Link
+                to="/project"
                 className="flex items-center transition-all duration-300 hover:opacity-80 hover:scale-105"
                 style={{
                   background: "none",
                   border: "none",
                   cursor: "pointer",
                   padding: 0,
+                  textDecoration: "none",
                 }}
               >
                 <span
@@ -491,30 +489,29 @@ const Hero = () => {
                 >
                   View
                 </span>
-                {/* Using a simple arrow as ion-icon replacement */}
                 <svg
                   width="16"
                   height="16"
                   viewBox="0 0 512 512"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  style={{ marginTop: "2px" }}
+                  style={{ marginTop: "0.5px" }}
                 >
                   <path
                     d="M184.6 408.3c-7.8 7.8-20.5 7.8-28.3 0s-7.8-20.5 0-28.3L297.4 256 156.3 114.9c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l152 152c7.8 7.8 7.8 20.5 0 28.3l-152 152z"
                     fill="#EFEFEF"
                   />
                 </svg>
-              </button>
+              </Link>
             </div>
 
             <p
               style={{
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "300",
-                fontSize: "11px",
+                fontSize: "12px",
                 color: "#EFEFEF",
-                lineHeight: "1.6",
+                lineHeight: "1.3",
                 textAlign: "justify",
               }}
             >
@@ -525,6 +522,31 @@ const Hero = () => {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* TECH STACK SECTION */}
+      <div
+        className="about-container flex flex-col bg-[#2A3A2B] mb-3"
+        style={{
+          width: "800px",
+          height: "360px",
+          border: "#EFEFEF solid 1px",
+          borderRadius: "10px",
+          padding: "20px",
+        }}
+      >
+        <h2
+          className="-mt-2"
+          style={{
+            fontFamily: "Readex Pro, sans-serif",
+            fontWeight: "600",
+            fontSize: "20px",
+            color: "#EFEFEF",
+            marginBottom: "5px",
+          }}
+        >
+          TECH STACK
+        </h2>
       </div>
     </section>
   );
