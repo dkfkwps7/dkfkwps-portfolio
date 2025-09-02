@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Profile from "/src/assets/Profile.svg";
 import TempProfile from "/src/assets/TempProfile.svg";
@@ -9,20 +9,78 @@ import Github from "/src/assets/Icons/Github.svg";
 import Discord from "/src/assets/Icons/Discord.svg";
 import CV from "/src/assets/Arragen_Basilio_CV.pdf";
 
-const ScrollToTop = () => {
-  const { pathname } = window.location;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
+import vscode from "/src/assets/Icons/vscode.svg";
+import xampp from "/src/assets/Icons/xampp.svg";
+import windsurf from "/src/assets/Icons/windsurf.svg";
+import cursor from "/src/assets/Icons/cursor.svg";
+import visualStudio from "/src/assets/Icons/visualStudio.svg";
+import pycharm from "/src/assets/Icons/pycharm.svg";
+import html from "/src/assets/Icons/html.svg";
+import css from "/src/assets/Icons/css.svg";
+import php from "/src/assets/Icons/php.svg";
+import cplus from "/src/assets/Icons/cplus.svg";
+import python from "/src/assets/Icons/python.svg";
+import java from "/src/assets/Icons/java.svg";
+import bootstrap from "/src/assets/Icons/bootstrap.svg";
+import react from "/src/assets/Icons/react.svg";
+import tailwindcss from "/src/assets/Icons/tailwindcss.svg";
+import mysql from "/src/assets/Icons/mysql.svg";
+import github1 from "/src/assets/Icons/github1.svg";
+import canva from "/src/assets/Icons/canva.svg";
+import figma from "/src/assets/Icons/figma.svg";
+import photoshop from "/src/assets/Icons/photoshop.svg";
+import animate from "/src/assets/Icons/animate.svg";
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isLogoLoopHovered, setIsLogoLoopHovered] = useState(false);
+  const [logoPosition, setLogoPosition] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const animationRef = useRef(null);
+  const logoLoopRef = useRef(null);
   const discordUsername = "tomataur.";
+
+  useEffect(() => {
+    if (!isPaused) {
+      let startTime = null;
+      const duration = 20000; // 20 seconds for a full loop
+      let currentProgress = logoPosition; // Start from the current position
+
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp - currentProgress * duration;
+        const elapsed = timestamp - startTime;
+        const progress = (elapsed % duration) / duration;
+
+        if (logoLoopRef.current) {
+          const totalWidth = logoLoopRef.current.scrollWidth / 2;
+          const newPosition = -progress * totalWidth;
+          setLogoPosition(progress); // Store the current progress
+          logoLoopRef.current.style.transform = `translateX(${newPosition}px)`;
+        }
+
+        animationRef.current = requestAnimationFrame(animate);
+      };
+
+      animationRef.current = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+      };
+    } else {
+      // When paused, store the current position
+      if (logoLoopRef.current) {
+        const computedStyle = window.getComputedStyle(logoLoopRef.current);
+        const matrix = new DOMMatrixReadOnly(computedStyle.transform);
+        const currentTranslateX = matrix.m41;
+        const totalWidth = logoLoopRef.current.scrollWidth / 2;
+        const progress = Math.abs(currentTranslateX) / totalWidth;
+        setLogoPosition(progress);
+      }
+    }
+  }, [isPaused]);
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
@@ -89,6 +147,30 @@ const Hero = () => {
       />
     </div>
   );
+
+  const logos = [
+    { src: vscode, alt: "VS Code" },
+    { src: xampp, alt: "XAMPP" },
+    { src: windsurf, alt: "Windsurf" },
+    { src: cursor, alt: "Cursor" },
+    { src: visualStudio, alt: "Visual Studio" },
+    { src: pycharm, alt: "PyCharm" },
+    { src: html, alt: "HTML" },
+    { src: css, alt: "CSS" },
+    { src: php, alt: "PHP" },
+    { src: cplus, alt: "C++" },
+    { src: python, alt: "Python" },
+    { src: java, alt: "Java" },
+    { src: bootstrap, alt: "Bootstrap" },
+    { src: react, alt: "React" },
+    { src: tailwindcss, alt: "Tailwind CSS" },
+    { src: mysql, alt: "MySQL" },
+    { src: github1, alt: "GitHub" },
+    { src: canva, alt: "Canva" },
+    { src: figma, alt: "Figma" },
+    { src: photoshop, alt: "Photoshop" },
+    { src: animate, alt: "Animate" },
+  ];
 
   return (
     <section className="about min-h-screen flex flex-col items-center bg-[#222D23]">
@@ -531,12 +613,11 @@ const Hero = () => {
       </div>
 
       {/* TECH STACK SECTION */}
-      {/* TECH STACK SECTION */}
       <div
         className="tech-stack-container flex flex-col bg-[#2A3A2B] mb-3"
         style={{
           width: "800px",
-          height: "360px",
+          height: "420px", // Increased height to accommodate the logo loop
           border: "#EFEFEF solid 1px",
           borderRadius: "10px",
           padding: "20px",
@@ -554,6 +635,101 @@ const Hero = () => {
         >
           TECH STACK
         </h2>
+
+        {/* LOGO LOOP SECTION */}
+        <div
+          className="logo-loop-container mb-6 overflow-hidden relative"
+          style={{
+            width: "100%",
+            height: "60px",
+            backgroundColor: "transparent",
+            borderRadius: "5px",
+          }}
+          onMouseEnter={() => {
+            setIsLogoLoopHovered(true);
+            setIsPaused(true);
+          }}
+          onMouseLeave={() => {
+            setIsLogoLoopHovered(false);
+            setHoveredIndex(null);
+            setTimeout(() => setIsPaused(false), 50);
+          }}
+        >
+          <div
+            ref={logoLoopRef}
+            className="logo-loop flex items-center h-full"
+            style={{
+              width: "max-content",
+              transition: isPaused ? "transform 0.5s ease-out" : "none",
+            }}
+          >
+            {logos.concat(logos).map((logo, index) => (
+              <div
+                key={index}
+                className="logo-item flex items-center justify-center mx-4 transition-all duration-300"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  flexShrink: 0,
+                  transform:
+                    isLogoLoopHovered && hoveredIndex === index
+                      ? "scale(1.1)"
+                      : "scale(1)",
+                  filter:
+                    isLogoLoopHovered && hoveredIndex === index
+                      ? "brightness(1.2) drop-shadow(0 0 4px #24FF45)"
+                      : "brightness(1)",
+                  zIndex: isLogoLoopHovered && hoveredIndex === index ? 10 : 1,
+                }}
+                onMouseEnter={() => {
+                  setHoveredIndex(index);
+                  setIsLogoLoopHovered(true);
+                  setIsPaused(true);
+                }}
+                onMouseLeave={() => {
+                  setHoveredIndex(null);
+                }}
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    objectFit: "contain",
+                    transition: "all 0.3s ease",
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Gradient overlays for smooth edges */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "50px",
+              height: "100%",
+              background: "linear-gradient(to right, #2F4530, transparent)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: "50px",
+              height: "100%",
+              background: "linear-gradient(to left, #2F4530, transparent)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
+        </div>
 
         {/* Tech Stack Containers */}
         <div className="flex flex-wrap justify-between">
@@ -1079,5 +1255,18 @@ const Hero = () => {
     </section>
   );
 };
+
+const style = document.createElement("style");
+style.textContent = `
+  @keyframes logoLoop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 20px));
+    }
+  }
+`;
+document.head.appendChild(style);
 
 export default Hero;
