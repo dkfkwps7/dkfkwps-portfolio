@@ -61,17 +61,17 @@ const Hero = () => {
           height: "11px",
           borderRadius: "50%",
           backgroundColor: hoveredIndex === index ? "#24FF45" : "transparent",
-          border: "2px solid #EFEFEF",
+          border: "2px solid #A8A8A8",
           transition: "background-color 0.3s ease",
         }}
       />
 
       <div
         style={{
-          width: "1.5px",
+          width: "1.4px",
           height: "50px",
           borderRadius: "15px",
-          backgroundColor: "#EFEFEF",
+          backgroundColor: "#A8A8A8",
           margin: "5px ",
         }}
       />
@@ -83,7 +83,7 @@ const Hero = () => {
           borderRadius: "50%",
           backgroundColor:
             hoveredIndex === index + 1 ? "#24FF45" : "transparent",
-          border: "2px solid #EFEFEF",
+          border: "2px solid #A8A8A8",
           transition: "background-color 0.3s ease",
         }}
       />
@@ -98,6 +98,7 @@ const Hero = () => {
         style={{
           width: "800px",
           height: "180px",
+          cursor: "default",
         }}
       >
         <div className="profile-image mr-9">
@@ -231,6 +232,7 @@ const Hero = () => {
           border: "#EFEFEF solid 1px",
           borderRadius: "10px",
           padding: "20px",
+          cursor: "default",
         }}
       >
         <h2
@@ -290,6 +292,7 @@ const Hero = () => {
             border: "#EFEFEF solid 1px",
             borderRadius: "10px",
             padding: "20px",
+            cursor: "default",
           }}
         >
           <h2
@@ -449,6 +452,7 @@ const Hero = () => {
               fontSize: "20px",
               color: "#EFEFEF",
               marginBottom: "10px",
+              cursor: "default",
             }}
           >
             PROJECT
@@ -462,6 +466,7 @@ const Hero = () => {
                   fontWeight: "500",
                   fontSize: "15px",
                   color: "#EFEFEF",
+                  cursor: "default",
                 }}
               >
                 eXBatch Enrolment System
@@ -513,6 +518,7 @@ const Hero = () => {
                 color: "#EFEFEF",
                 lineHeight: "1.3",
                 textAlign: "justify",
+                cursor: "default",
               }}
             >
               A web-based application designed to streamline the enrolment of
@@ -555,8 +561,8 @@ const Hero = () => {
           <div
             className="tech-category"
             style={{
-              width: "180px",
-              height: "220px",
+              width: "175px",
+              height: "250px",
               backgroundColor: "#2F4530",
               borderRadius: "10px",
               border: "#EFEFEF solid 1px",
@@ -568,7 +574,7 @@ const Hero = () => {
               style={{
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "500",
-                fontSize: "14px",
+                fontSize: "15px",
                 color: "#EFEFEF",
                 textAlign: "center",
                 marginBottom: "15px",
@@ -613,8 +619,8 @@ const Hero = () => {
           <div
             className="tech-category"
             style={{
-              width: "180px",
-              height: "220px",
+              width: "210px",
+              height: "250px",
               backgroundColor: "#2F4530",
               borderRadius: "10px",
               border: "#EFEFEF solid 1px",
@@ -626,7 +632,7 @@ const Hero = () => {
               style={{
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "500",
-                fontSize: "14px",
+                fontSize: "16px",
                 color: "#EFEFEF",
                 textAlign: "center",
                 marginBottom: "10px",
@@ -647,7 +653,7 @@ const Hero = () => {
               </span>
               <div
                 style={{
-                  width: "70px",
+                  width: "80px",
                   height: "6px",
                   backgroundColor: "#EFEFEF",
                   borderRadius: "3px",
@@ -678,7 +684,7 @@ const Hero = () => {
               </span>
               <div
                 style={{
-                  width: "70px",
+                  width: "80px",
                   height: "6px",
                   backgroundColor: "#EFEFEF",
                   borderRadius: "3px",
@@ -709,7 +715,7 @@ const Hero = () => {
               </span>
               <div
                 style={{
-                  width: "70px",
+                  width: "80px",
                   height: "6px",
                   backgroundColor: "#EFEFEF",
                   borderRadius: "3px",
@@ -740,7 +746,7 @@ const Hero = () => {
               </span>
               <div
                 style={{
-                  width: "70px",
+                  width: "80px",
                   height: "6px",
                   backgroundColor: "#EFEFEF",
                   borderRadius: "3px",
@@ -771,7 +777,7 @@ const Hero = () => {
               </span>
               <div
                 style={{
-                  width: "70px",
+                  width: "80px",
                   height: "6px",
                   backgroundColor: "#EFEFEF",
                   borderRadius: "3px",
@@ -789,18 +795,40 @@ const Hero = () => {
                 />
               </div>
             </div>
+            <div className="flex flex-wrap gap-2 mt-3">
+              {["Bootstrap", "Material UI", "Vite", "HeroUI"].map(
+                (frontend) => (
+                  <span
+                    key={frontend}
+                    className="frontend-tag"
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "12px",
+                      color: "#EFEFEF",
+                      border: "1px solid #EFEFEF",
+                      borderRadius: "3px",
+                      padding: "2px 8px",
+                      display: "inline-block",
+                    }}
+                  >
+                    {frontend}
+                  </span>
+                )
+              )}
+            </div>
           </div>
 
           {/* Backend Container */}
           <div
             className="tech-category"
             style={{
-              width: "180px",
-              height: "220px",
+              width: "190px",
+              height: "250px",
               backgroundColor: "#2F4530",
               borderRadius: "10px",
               border: "#EFEFEF solid 1px",
-              padding: "10px",
+              padding: "15px",
               marginBottom: "15px",
             }}
           >
@@ -808,7 +836,7 @@ const Hero = () => {
               style={{
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "500",
-                fontSize: "14px",
+                fontSize: "16px",
                 color: "#EFEFEF",
                 textAlign: "center",
                 marginBottom: "10px",
@@ -816,19 +844,198 @@ const Hero = () => {
             >
               Backend
             </h3>
-            {/* Content will go here */}
+
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                PHP
+              </span>
+              <div
+                style={{
+                  width: "80px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "55px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                Python
+              </span>
+              <div
+                style={{
+                  width: "80px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "45px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                Java
+              </span>
+              <div
+                style={{
+                  width: "80px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "40px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                C++
+              </span>
+              <div
+                style={{
+                  width: "80px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "45px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mb-1">
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
+              >
+                VB.Net
+              </span>
+              <div
+                style={{
+                  width: "80px",
+                  height: "6px",
+                  backgroundColor: "#EFEFEF",
+                  borderRadius: "3px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "30px",
+                    height: "6px",
+                    backgroundColor: "#24FF45",
+                    borderRadius: "3px",
+                    position: "absolute",
+                  }}
+                />
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2 mt-3">
+              {["MySQL", "C#"].map((frontend) => (
+                <span
+                  key={frontend}
+                  className="backend-tag"
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "12px",
+                    color: "#EFEFEF",
+                    border: "1px solid #EFEFEF",
+                    borderRadius: "3px",
+                    padding: "2px 8px",
+                    display: "inline-block",
+                  }}
+                >
+                  {frontend}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Design Tools Container */}
           <div
             className="tech-category"
             style={{
-              width: "180px",
-              height: "220px",
+              width: "160px",
+              height: "250px",
               backgroundColor: "#2F4530",
               borderRadius: "10px",
               border: "#EFEFEF solid 1px",
-              padding: "10px",
+              padding: "15px",
               marginBottom: "15px",
             }}
           >
@@ -836,7 +1043,7 @@ const Hero = () => {
               style={{
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "500",
-                fontSize: "14px",
+                fontSize: "16px",
                 color: "#EFEFEF",
                 textAlign: "center",
                 marginBottom: "10px",
@@ -844,7 +1051,28 @@ const Hero = () => {
             >
               Design Tools
             </h3>
-            {/* Content will go here */}
+            <div className="flex flex-wrap justify-center gap-2 mt-3">
+              {["Canva", "Figma", "Adobe Photoshop", "Adobe Animate"].map(
+                (frontend) => (
+                  <span
+                    key={frontend}
+                    className="design-tag"
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "12px",
+                      color: "#EFEFEF",
+                      border: "1px solid #EFEFEF",
+                      borderRadius: "3px",
+                      padding: "2px 8px",
+                      display: "inline-block",
+                    }}
+                  >
+                    {frontend}
+                  </span>
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>
