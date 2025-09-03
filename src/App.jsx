@@ -9,7 +9,7 @@ const App = () => {
     <Router>
       <ScrollToTop />
       <div>
-        <Routes basename="/dkfkwps-portfolio/">
+        <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/project" element={<Project />} />
         </Routes>
