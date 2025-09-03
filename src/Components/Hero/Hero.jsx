@@ -31,6 +31,11 @@ import figma from "/src/assets/Icons/figma.svg";
 import photoshop from "/src/assets/Icons/photoshop.svg";
 import animate from "/src/assets/Icons/animate.svg";
 
+import Phone from "/src/assets/Icons/Phone.svg";
+import Email from "/src/assets/Icons/Email.svg";
+
+import Copyright from "/src/assets/Elements/Copyright.svg";
+
 const Hero = () => {
   const [copied, setCopied] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -40,12 +45,19 @@ const Hero = () => {
   const animationRef = useRef(null);
   const logoLoopRef = useRef(null);
   const discordUsername = "tomataur.";
+  const [phoneCopied, setPhoneCopied] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    show: false,
+    message: "",
+    animating: false,
+  });
 
   useEffect(() => {
     if (!isPaused) {
       let startTime = null;
-      const duration = 20000; // 20 seconds for a full loop
-      let currentProgress = logoPosition; // Start from the current position
+      const duration = 20000;
+      let currentProgress = logoPosition;
 
       const animate = (timestamp) => {
         if (!startTime) startTime = timestamp - currentProgress * duration;
@@ -55,7 +67,7 @@ const Hero = () => {
         if (logoLoopRef.current) {
           const totalWidth = logoLoopRef.current.scrollWidth / 2;
           const newPosition = -progress * totalWidth;
-          setLogoPosition(progress); // Store the current progress
+          setLogoPosition(progress);
           logoLoopRef.current.style.transform = `translateX(${newPosition}px)`;
         }
 
@@ -70,7 +82,6 @@ const Hero = () => {
         }
       };
     } else {
-      // When paused, store the current position
       if (logoLoopRef.current) {
         const computedStyle = window.getComputedStyle(logoLoopRef.current);
         const matrix = new DOMMatrixReadOnly(computedStyle.transform);
@@ -96,16 +107,20 @@ const Hero = () => {
       .writeText(discordUsername)
       .then(() => {
         setCopied(true);
+        showSnackbar("Discord username copied to clipboard!");
         setTimeout(() => setCopied(false), 2000);
       })
       .catch((err) => {
-        console.error("Failed to copy: ", err);
+        console.error("Failed to copy Discord username: ", err);
+        showSnackbar("Failed to copy Discord username");
       });
-    window.open("discord:///users/@me", "_blank");
-
+    window.open("discord:///invites", "_blank");
     setTimeout(() => {
-      window.open("https://discord.com/channels/@me", "_blank");
-    }, 500);
+      window.open("discord:///users/@me", "_blank");
+      setTimeout(() => {
+        console.log("Username copied:", discordUsername);
+      }, 1000);
+    }, 300);
   };
 
   const TimelineElement = ({ index }) => (
@@ -148,6 +163,52 @@ const Hero = () => {
     </div>
   );
 
+  useEffect(() => {
+    if (snackbar.show && !snackbar.animating) {
+      const timer = setTimeout(() => {
+        setSnackbar({ show: false, message: "", animating: false });
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [snackbar.show, snackbar.animating]);
+
+  const showSnackbar = (message) => {
+    setSnackbar({ show: true, message, animating: true });
+    setTimeout(() => {
+      setSnackbar((prev) => ({ ...prev, animating: false }));
+    }, 1700);
+  };
+
+  const handlePhoneClick = () => {
+    const phoneNumber = "+639095358493";
+    navigator.clipboard
+      .writeText(phoneNumber)
+      .then(() => {
+        setPhoneCopied(true);
+        showSnackbar("Phone number copied to clipboard!");
+        setTimeout(() => setPhoneCopied(false), 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy phone number: ", err);
+        showSnackbar("Failed to copy phone number");
+      });
+  };
+
+  const handleEmailClick = () => {
+    const email = "arragenbasilio07@gmail.com";
+    navigator.clipboard
+      .writeText(email)
+      .then(() => {
+        setEmailCopied(true);
+        showSnackbar("Email address copied to clipboard!");
+        setTimeout(() => setEmailCopied(false), 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy email: ", err);
+        showSnackbar("Failed to copy email address");
+      });
+  };
+
   const logos = [
     { src: vscode, alt: "VS Code" },
     { src: xampp, alt: "XAMPP" },
@@ -185,7 +246,7 @@ const Hero = () => {
       >
         <div className="profile-image mr-9">
           <img
-            src={TempProfile}
+            src={Profile}
             alt="Profile"
             style={{ width: "190px", borderRadius: "10px" }}
           />
@@ -294,11 +355,6 @@ const Hero = () => {
                 onClick={handleDiscordClick}
               >
                 <img src={Discord} alt="Discord" style={{ width: "40px" }} />
-                {copied && (
-                  <div className="absolute -top-8 -left-5 bg-gray-800 text-white text-xs px-2 py-1 rounded">
-                    Copied! Username: {discordUsername}
-                  </div>
-                )}
               </button>
             </div>
           </div>
@@ -617,10 +673,11 @@ const Hero = () => {
         className="tech-stack-container flex flex-col bg-[#2A3A2B] mb-3"
         style={{
           width: "800px",
-          height: "420px", // Increased height to accommodate the logo loop
+          height: "420px",
           border: "#EFEFEF solid 1px",
           borderRadius: "10px",
           padding: "20px",
+          paddingBottom: "10px",
         }}
       >
         <h2
@@ -641,7 +698,7 @@ const Hero = () => {
           className="logo-loop-container mb-6 overflow-hidden relative"
           style={{
             width: "100%",
-            height: "60px",
+            height: "65px",
             backgroundColor: "transparent",
             borderRadius: "5px",
           }}
@@ -668,8 +725,8 @@ const Hero = () => {
                 key={index}
                 className="logo-item flex items-center justify-center mx-4 transition-all duration-300"
                 style={{
-                  width: "40px",
-                  height: "40px",
+                  width: "35px",
+                  height: "35px",
                   flexShrink: 0,
                   transform:
                     isLogoLoopHovered && hoveredIndex === index
@@ -704,7 +761,6 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* Gradient overlays for smooth edges */}
           <div
             style={{
               position: "absolute",
@@ -1250,6 +1306,565 @@ const Hero = () => {
               )}
             </div>
           </div>
+        </div>
+      </div>
+      {/* NEW SECTIONS: ACHIEVEMENTS, LEADERSHIP ROLE, CONNECT */}
+      <div className="flex gap-3" style={{ width: "800px" }}>
+        {/* ACHIEVEMENTS SECTION */}
+        <div
+          className="achievements-container flex flex-col bg-[#2A3A2B]"
+          style={{
+            width: "385px",
+            height: "310px",
+            border: "#EFEFEF solid 1px",
+            borderRadius: "10px",
+            padding: "20px",
+            cursor: "default",
+          }}
+        >
+          <h2
+            className="-mt-2"
+            style={{
+              fontFamily: "Readex Pro, sans-serif",
+              fontWeight: "600",
+              fontSize: "20px",
+              color: "#EFEFEF",
+              marginBottom: "10px",
+            }}
+          >
+            ACHIEVEMENTS
+          </h2>
+
+          {/* Achievement 1 */}
+          <div
+            className="achievement-item flex justify-between items-start"
+            style={{
+              width: "auto",
+              height: "80px",
+              padding: "10px",
+              marginBottom: "5px",
+              backgroundColor: "#2F4530",
+              borderRadius: "5px",
+              border: "#EFEFEF solid 1px",
+            }}
+          >
+            <div className="flex flex-col">
+              <h3
+                className=""
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "500",
+                  fontSize: "15px",
+                  color: "#EFEFEF",
+                  marginBottom: "5px",
+                  textAlign: "left",
+                }}
+              >
+                Outstanding in Practicum
+              </h3>
+              <p
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "300",
+                  fontSize: "9px",
+                  color: "#EFEFEF",
+                  lineHeight: "1.5",
+                  textAlign: "left",
+                  marginBottom: "5px",
+                }}
+              >
+                Recognized for outstanding performance and professionalism
+                during On-the-Job Training at Am-Europharma Corporation.
+              </p>
+            </div>
+            <div
+              style={{
+                width: "37px",
+                height: "17px",
+                borderRadius: "50px",
+                backgroundColor: "transparent",
+                border: "1px solid #EFEFEF",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+                marginTop: "3px",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "300",
+                  fontSize: "9px",
+                  color: "#EFEFEF",
+                }}
+              >
+                2025
+              </span>
+            </div>
+          </div>
+
+          {/* Achievement 2 */}
+          <div
+            className="achievement-item flex justify-between items-start"
+            style={{
+              width: "auto",
+              height: "70px",
+              padding: "10px",
+              marginBottom: "5px",
+              backgroundColor: "#2F4530",
+              borderRadius: "5px",
+              border: "#EFEFEF solid 1px",
+            }}
+          >
+            <div className="flex flex-col">
+              <h3
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "500",
+                  fontSize: "15px",
+                  color: "#EFEFEF",
+                  marginBottom: "5px",
+                  textAlign: "left",
+                }}
+              >
+                Dean's Lister
+              </h3>
+              <p
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "300",
+                  fontSize: "12px",
+                  color: "#EFEFEF",
+                  lineHeight: "1.2",
+                  textAlign: "left",
+                  marginBottom: "5px",
+                }}
+              >
+                Achieved a General Weighted Average of 1.55
+              </p>
+            </div>
+            <div
+              style={{
+                width: "37px",
+                height: "17px",
+                borderRadius: "50px",
+                backgroundColor: "transparent",
+                border: "1px solid #EFEFEF",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+                marginTop: "3px",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "300",
+                  fontSize: "9px",
+                  color: "#EFEFEF",
+                }}
+              >
+                2024
+              </span>
+            </div>
+          </div>
+
+          {/* Achievement 3 */}
+          <div
+            className="achievement-item flex justify-between items-start"
+            style={{
+              width: "auto",
+              height: "80px",
+              padding: "10px",
+              marginBottom: "5px",
+              backgroundColor: "#2F4530",
+              borderRadius: "5px",
+              border: "#EFEFEF solid 1px",
+            }}
+          >
+            <div className="flex flex-col">
+              <h3
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "500",
+                  fontSize: "15px",
+                  color: "#EFEFEF",
+                  marginBottom: "5px",
+                  textAlign: "left",
+                }}
+              >
+                Top Performing Student
+              </h3>
+              <p
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "300",
+                  fontSize: "9px",
+                  color: "#EFEFEF",
+                  lineHeight: "1.2",
+                  textAlign: "left",
+                  marginBottom: "5px",
+                }}
+              >
+                Recognized for outstanding academic performance in the College
+                of Computer Studies
+              </p>
+            </div>
+            <div
+              style={{
+                width: "37px",
+                height: "17px",
+                borderRadius: "50px",
+                backgroundColor: "transparent",
+                border: "1px solid #EFEFEF",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+                marginTop: "3px",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "300",
+                  fontSize: "9px",
+                  color: "#EFEFEF",
+                }}
+              >
+                2024
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3" style={{ width: "400px" }}>
+          {/* LEADERSHIP ROLE SECTION */}
+          <div
+            className="leadership-container flex flex-col bg-[#2A3A2B]"
+            style={{
+              width: "405px",
+              height: "185px",
+              border: "#EFEFEF solid 1px",
+              borderRadius: "10px",
+              padding: "20px",
+              cursor: "default",
+            }}
+          >
+            <h2
+              className="-mt-2"
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "600",
+                fontSize: "20px",
+                color: "#EFEFEF",
+                marginBottom: "10px",
+              }}
+            >
+              LEADERSHIP ROLE
+            </h2>
+
+            <div className="flex items-start mb-3">
+              <TimelineElement index={0} />
+
+              <div className="mt-0.6 flex-1">
+                <div className="flex justify-between items-start">
+                  <div
+                    className="experience-item flex-1 mr-3"
+                    onMouseEnter={() => setHoveredIndex(0)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    style={{ transition: "color 0.3s ease" }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "500",
+                        fontSize: "15px",
+                        color: "#EFEFEF",
+                        transition: "color 0.3s ease",
+                      }}
+                    >
+                      Public Relations Officer (P.R.O)
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "300",
+                        fontSize: "9px",
+                        color: "#EFEFEF",
+                        lineHeight: "1.4",
+                        transition: "color 0.3s ease",
+                      }}
+                    >
+                      UPHSD College of Computer Studies Student Council
+                    </p>
+                  </div>
+
+                  <div
+                    className="mt-3"
+                    style={{
+                      width: "73px",
+                      height: "17px",
+                      borderRadius: "50px",
+                      backgroundColor: "transparent",
+                      border: "1px solid #EFEFEF",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "300",
+                        fontSize: "9px",
+                        color: "#EFEFEF",
+                      }}
+                    >
+                      2023 - 2025
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-start mt-9">
+                  <div
+                    className="experience-item flex-1 mr-3"
+                    onMouseEnter={() => setHoveredIndex(1)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    style={{ transition: "color 0.3s ease" }}
+                  >
+                    <p
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "500",
+                        fontSize: "15px",
+                        color: "#EFEFEF",
+                        transition: "color 0.3s ease",
+                      }}
+                    >
+                      Business Manager
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "300",
+                        fontSize: "9px",
+                        color: "#EFEFEF",
+                        lineHeight: "1.4",
+                        transition: "color 0.3s ease",
+                      }}
+                    >
+                      UPHSD College of Computer Studies Student Council
+                    </p>
+                  </div>
+
+                  <div
+                    className="mt-3"
+                    style={{
+                      width: "73px",
+                      height: "17px",
+                      borderRadius: "50px",
+                      backgroundColor: "transparent",
+                      border: "1px solid #EFEFEF",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "300",
+                        fontSize: "9px",
+                        color: "#EFEFEF",
+                      }}
+                    >
+                      2022 - 2023
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CONNECT SECTION */}
+          <div
+            className="connect-container flex flex-col bg-[#2A3A2B] relative"
+            style={{
+              width: "405px",
+              height: "115px",
+              border: "#EFEFEF solid 1px",
+              borderRadius: "10px",
+              padding: "20px",
+              cursor: "default",
+            }}
+          >
+            <h2
+              className="-mt-2"
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "600",
+                fontSize: "20px",
+                color: "#EFEFEF",
+                marginBottom: "10px",
+              }}
+            >
+              CONNECT
+            </h2>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center relative">
+                <button
+                  onClick={handlePhoneClick}
+                  className="transition-all duration-300 hover:opacity-80 hover:scale-110"
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    cursor: "pointer",
+                  }}
+                >
+                  <img
+                    src={Phone}
+                    alt="Phone"
+                    style={{
+                      width: "35px",
+                      height: "35px",
+                    }}
+                  />
+                </button>
+              </div>
+              <div className="flex items-center relative">
+                <button
+                  onClick={handleEmailClick}
+                  className="flex items-center transition-all duration-300 hover:opacity-80"
+                  style={{
+                    width: "307px",
+                    height: "40px",
+                    backgroundColor: "#2F4530",
+                    border: "#EFEFEF solid 1px",
+                    borderRadius: "5px",
+                    padding: "5px",
+                    background: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  <img
+                    src={Email}
+                    alt="Email"
+                    style={{
+                      width: "30px",
+                      height: "30px",
+                      marginRight: "10px",
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "400",
+                      fontSize: "15px",
+                      color: "#EFEFEF",
+                    }}
+                  >
+                    arragenbasilio07@gmail.com
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            {snackbar.show && (
+              <div
+                className={`fixed top-6 right-6 bg-[#4A5B4C] text-white px-6 py-3 rounded-lg shadow-lg flex items-center z-50 ${
+                  snackbar.animating ? "animate-fade-in" : "animate-fade-out"
+                }`}
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <span>{snackbar.message}</span>
+              </div>
+            )}
+
+            <style jsx>{`
+              @keyframes fade-in {
+                from {
+                  opacity: 0;
+                  transform: translateY(-20px) scale(0.9);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateY(0) scale(1);
+                }
+              }
+
+              @keyframes fade-out {
+                from {
+                  opacity: 1;
+                  transform: translateY(0) scale(1);
+                }
+                to {
+                  opacity: 0;
+                  transform: translateY(-20px) scale(0.9);
+                }
+              }
+
+              .animate-fade-in {
+                animation: fade-in 0.3s ease-out forwards;
+              }
+
+              .animate-fade-out {
+                animation: fade-out 0.3s ease-in forwards;
+              }
+            `}</style>
+          </div>
+        </div>
+      </div>
+      {/* FOOTER SECTION */}
+      <div
+        className="footer-container flex flex-col items-center mt-17 mb-10"
+        style={{ width: "800px" }}
+      >
+        <div
+          style={{
+            width: "100%",
+            height: "1px",
+            backgroundColor: "#EFEFEF",
+            marginBottom: "20px",
+            opacity: "0.3",
+          }}
+        ></div>
+
+        <div className="flex items-center">
+          <img
+            src={Copyright}
+            alt="Copyright"
+            style={{ width: "10px", marginRight: "8px" }}
+          />
+          <p
+            style={{
+              fontFamily: "Readex Pro, sans-serif",
+              fontWeight: "300",
+              fontSize: "13px",
+              color: "#EFEFEF",
+            }}
+          >
+            2025 Arragen Basilio. All rights reserved.
+          </p>
         </div>
       </div>
     </section>
