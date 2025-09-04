@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import "./Hero.css";
 import Profile from "/src/assets/Profile.svg";
 import TempProfile from "/src/assets/TempProfile.svg";
 import Education from "/src/assets/Icons/Education.svg";
@@ -337,7 +338,7 @@ const Hero = () => {
                 />
               </a>
               <a
-                href="https://github.com/dkfkwps"
+                href="https://github.com/dkfkwps7"
                 className="mr-2.5 transition-all duration-300 hover:opacity-80 hover:scale-110"
                 target="_blank"
                 rel="noopener noreferrer"

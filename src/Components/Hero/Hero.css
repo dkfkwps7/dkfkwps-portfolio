@@ -1,0 +1,258 @@
+/* Hero-responsive.css - Responsive styles for small screens only */
+
+/* Mobile devices (portrait and landscape) */
+@media only screen and (max-width: 900px) {
+  /* Main container adjustments */
+  .about {
+    padding: 0 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Header section responsive */
+  .header-container {
+    width: 100% !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto !important;
+    margin: 30px 0 !important;
+  }
+  
+  .profile-image {
+    margin-right: 0 !important;
+    margin-bottom: 25px;
+  }
+  
+  .profile-image img {
+    width: 150px !important;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .info-contents {
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .name {
+    font-size: 28px !important;
+    text-align: center;
+  }
+  
+  .education, .location {
+    justify-content: center;
+  }
+  
+  .buttons {
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  /* About section responsive */
+  .about-container {
+    width: 100% !important;
+    height: auto !important;
+    padding: 20px !important;
+  }
+  
+  /* Experience and project section responsive */
+  .flex.mt-3.gap-3 {
+    flex-direction: column;
+    width: 100% !important;
+    gap: 15px !important;
+  }
+  
+  .experience-container,
+  .project-container {
+    width: 100% !important;
+    height: auto !important;
+    padding: 20px !important;
+  }
+  
+  /* Tech stack section responsive */
+  .tech-stack-container {
+    width: 100% !important;
+    height: auto !important;
+    padding: 20px !important;
+    padding-bottom: 15px !important;
+  }
+  
+  .logo-loop-container {
+    height: 55px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .tech-category {
+    width: 100% !important;
+    margin-bottom: 15px;
+    height: auto !important;
+    min-height: 250px;
+  }
+  
+  /* Flex wrap container for tech categories */
+  .flex.flex-wrap.justify-between {
+    gap: 15px;
+  }
+  
+  /* Achievements and leadership responsive */
+  .flex.gap-3:last-of-type {
+    flex-direction: column;
+    width: 100% !important;
+    gap: 15px !important;
+  }
+  
+  .achievements-container,
+  .leadership-container,
+  .connect-container {
+    width: 100% !important;
+    height: auto !important;
+    padding: 20px !important;
+  }
+  
+  /* Leadership role adjustments */
+  .leadership-container .flex.items-start.mb-3 {
+    flex-direction: column;
+  }
+  
+  /* Fixed the selector - removed the escaped character */
+  .leadership-container .mt-0\\.6,
+  .leadership-container [class*="mt-0"] {
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  /* Connect section adjustments */
+  .connect-container .flex.items-center.justify-between {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .connect-container button {
+    width: 100% !important;
+    justify-content: flex-start;
+  }
+  
+  /* Footer responsive */
+  .footer-container {
+    width: 100% !important;
+    margin: 30px 0 !important;
+  }
+  
+  /* Timeline element adjustments */
+  .flex.items-start.mb-3 {
+    flex-direction: column;
+  }
+  
+  /* Fixed the selector - removed the escaped character */
+  .flex.items-start.mb-3 > .mt-0\\.6,
+  .flex.items-start.mb-3 > [class*="mt-0"] {
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  /* Snackbar positioning for mobile */
+  .fixed.top-6.right-6 {
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+  }
+}
+
+/* Very small mobile devices */
+@media only screen and (max-width: 480px) {
+  .profile-image img {
+    width: 120px !important;
+    height: 120px;
+  }
+  
+  .name {
+    font-size: 24px !important;
+  }
+  
+  .about-container,
+  .experience-container,
+  .project-container,
+  .tech-stack-container,
+  .achievements-container,
+  .leadership-container,
+  .connect-container {
+    padding: 16px !important;
+  }
+  
+  /* Tech skill bars adjustment */
+  .flex.items-center.justify-between {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+  
+  .flex.items-center.justify-between > div {
+    width: 100%;
+  }
+  
+  /* Social icons adjustment */
+  .social-icons {
+    margin-top: 15px;
+  }
+  
+  /* Tech tags adjustment */
+  .dev-tag,
+  .frontend-tag,
+  .backend-tag,
+  .design-tag {
+    font-size: 11px !important;
+    padding: 2px 6px !important;
+    margin-bottom: 5px;
+  }
+  
+  /* Achievement items adjustment */
+  .achievement-item {
+    flex-direction: column;
+    height: auto !important;
+    gap: 10px;
+  }
+  
+  .achievement-item > div:last-child {
+    align-self: flex-end;
+  }
+}
+
+/* Animation adjustments for mobile */
+@media only screen and (max-width: 900px) {
+  .logo-loop {
+    animation-duration: 25s !important;
+  }
+}
+
+/* Improve touch targets for mobile */
+@media only screen and (max-width: 900px) {
+  button, a, .logo-item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .social-icons a,
+  .social-icons button {
+    width: 44px !important;
+    height: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-icons img {
+    width: 32px !important;
+  }
+  
+  /* Download CV button */
+  .download-cv {
+    min-width: 130px;
+    min-height: 40px;
+  }
+}
