@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Project.css";
 import UserManual from "/src/assets/eXBatch_Enrolment_System-UserManual.pdf";
+import "./Project.css"; // Import the CSS file
 
 const ScrollToTop = () => {
   const { pathname } = window.location;
@@ -16,6 +16,7 @@ const ScrollToTop = () => {
 const Project = () => {
   const navigate = useNavigate();
   const [showManual, setShowManual] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleBack = () => {
     navigate(-1);
@@ -24,6 +25,24 @@ const Project = () => {
   const toggleManual = () => {
     setShowManual(!showManual);
   };
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 640);
+    };
+
+    // Initial check
+    checkIsMobile();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkIsMobile);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -109,39 +128,74 @@ const Project = () => {
                 eXBatch Enrolment System
               </h1>
 
-              <button
-                onClick={toggleManual}
-                className="toggle-manual-btn flex items-center px-4 py-2 rounded transition-all duration-300 hover:bg-[#2e3b2f]"
-                style={{
-                  background: "#2A352B",
-                  border: "1px solid #EFEFEF",
-                  color: "#EFEFEF",
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "300",
-                  fontSize: "16px",
-                }}
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-2"
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={toggleManual}
+                  className="toggle-manual-btn flex items-center px-4 py-2 rounded transition-all duration-300 hover:bg-[#2e3b2f]"
+                  style={{
+                    background: "#2A352B",
+                    border: "1px solid #EFEFEF",
+                    color: "#EFEFEF",
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "16px",
+                  }}
                 >
-                  <path
-                    d="M14 2H6C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z"
-                    fill="#EFEFEF"
-                  />
-                </svg>
-                View User Manual
-              </button>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="mr-2"
+                  >
+                    <path
+                      d="M14 2H6C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z"
+                      fill="#EFEFEF"
+                    />
+                  </svg>
+                  View User Manual
+                </button>
+
+                {/* Mobile-only download button */}
+                {isMobile && (
+                  <a
+                    href={UserManual}
+                    download
+                    className="mobile-download-btn flex items-center px-4 py-2 rounded transition-all duration-300 hover:bg-[#2e3b2f]"
+                    style={{
+                      background: "#2A352B",
+                      border: "1px solid #24FF45",
+                      color: "#EFEFEF",
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "16px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                    >
+                      <path
+                        d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                        fill="#24FF45"
+                      />
+                    </svg>
+                    Download
+                  </a>
+                )}
+              </div>
             </div>
 
             {/* PDF Manual Container */}
             {showManual && (
               <div className="manual-container fixed top-0 right-0 h-full w-1/2 bg-[#2A352B] shadow-2xl z-50 transition-all duration-500 ease-in-out">
-                <div className="flex justify-between items-center p-4 border-b border-[#EFEFEF]">
+                <div className="manual-header">
                   <h2
                     style={{
                       fontFamily: "Readex Pro, sans-serif",
@@ -154,15 +208,15 @@ const Project = () => {
                   </h2>
                   <button
                     onClick={toggleManual}
-                    className="text-[#EFEFEF] hover:text-[#24FF45] text-2xl"
+                    className="close-manual"
                     aria-label="Close manual"
                   >
                     &times;
                   </button>
                 </div>
-                <div className="h-full p-4">
+                <div className="manual-content">
                   <iframe
-                    src={UserManual}
+                    src={UserManual + "#view=FitH"}
                     className="w-full h-full"
                     title="eXBatch Enrolment System User Manual"
                   />

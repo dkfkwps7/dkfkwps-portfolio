@@ -47,8 +47,24 @@
     margin-bottom: 0 !important;
   }
 
+  /* Button container */
+  .project-content > div:first-child > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   /* View Manual button */
   .toggle-manual-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    padding: 10px !important;
+  }
+
+  /* Mobile download button */
+  .mobile-download-btn {
     width: 100% !important;
     justify-content: center !important;
     font-size: 14px !important;
@@ -113,23 +129,48 @@
   /* Manual container for mobile */
   .manual-container {
     width: 100% !important;
-    height: 100% !important;
+    height: 100vh !important;
     top: 0 !important;
     right: 0 !important;
     left: 0 !important;
     bottom: 0 !important;
+    z-index: 1000 !important;
   }
 
-  .manual-container .flex {
-    padding: 10px !important;
+  .manual-header {
+    padding: 12px !important;
+    height: auto !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a352b;
+    border-bottom: 1px solid #efefef;
   }
 
-  .manual-container h2 {
-    font-size: 16px !important;
+  .manual-content {
+    height: calc(100vh - 60px) !important;
+    padding: 0 !important;
+    overflow: hidden;
   }
 
-  .manual-container iframe {
-    height: calc(100% - 50px) !important;
+  .manual-content iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+  }
+
+  .close-manual {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #efefef;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -151,5 +192,13 @@
   .tech-tag {
     font-size: 11px !important;
     padding: 2px 6px !important;
+  }
+}
+
+/* Desktop styles for button container */
+@media (min-width: 641px) {
+  .project-content > div:first-child > div {
+    display: flex;
+    gap: 10px;
   }
 }
