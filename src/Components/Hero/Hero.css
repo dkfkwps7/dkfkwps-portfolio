@@ -1,0 +1,197 @@
+/* Responsive styles for Hero.jsx */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+  .header-container,
+  .about-container,
+  .experience-container,
+  .project-container,
+  .tech-stack-container,
+  .achievements-container,
+  .leadership-container,
+  .connect-container,
+  .footer-container {
+    width: 95% !important; /* shrink to fit smaller screens */
+    height: auto !important; /* allow content to expand naturally */
+  }
+
+  .header-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-container .profile-image {
+    margin-right: 0 !important;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .header-container .profile-image img {
+    width: 150px !important;
+    margin: 0 auto; /* ensure image is centered */
+  }
+
+  .info-contents {
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 640px) {
+  .header-container {
+    padding: 0 10px; /* Add some padding on the sides */
+  }
+
+  .experience-container,
+  .project-container,
+  .achievements-container,
+  .leadership-container,
+  .connect-container {
+    margin-left: 10px;
+  }
+
+  h1.name {
+    font-size: 24px !important;
+    text-align: center;
+    width: 100%;
+  }
+
+  .about-container p,
+  .project-item p,
+  .experience-item p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  .tech-category {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .flex.gap-3,
+  .flex.mt-3.gap-3 {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .achievement-item,
+  .connect-container button span {
+    font-size: 12px !important;
+  }
+
+  .connect-container button {
+    width: 100% !important;
+    height: auto !important;
+    padding: 8px 10px !important;
+  }
+
+  .connect-container button span {
+    margin-top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .email {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Phone icon size adjustment for mobile */
+  .connect-container button img[alt="Phone"] {
+    width: 40px !important; /* Increased from 35px */
+    height: 40px !important; /* Increased from 35px */
+  }
+
+  /* Download CV button size adjustment for mobile */
+  .download-cv {
+    width: 140px !important; /* Increased from 130px */
+    height: 38px !important; /* Increased from 33px */
+    font-size: 14px !important; /* Increased from 13px */
+  }
+
+  /* Education and location info centering */
+  .education,
+  .location {
+    justify-content: center;
+    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .header-container .profile-image {
+    margin-right: 0 !important; /* remove desktop margin */
+    display: flex;
+    justify-content: center; /* center horizontally */
+    width: 100%; /* take full width */
+  }
+
+  .header-container .profile-image img {
+    margin: 0 auto; /* ensure image is centered */
+  }
+}
+@media (max-width: 640px) {
+  .leadership-container .mt-9 {
+    margin-top: 1rem !important; /* reduce spacing on mobile */
+  }
+}
+@media (max-width: 640px) {
+  .email-button {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important; /* Force row layout */
+    justify-content: flex-start !important;
+    width: 100% !important;
+    padding: 8px 10px !important;
+  }
+
+  .email-button img {
+    margin-right: 8px !important;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+  }
+
+  .email-button span {
+    text-align: left !important;
+    white-space: nowrap; /* Keep text in one line */
+    overflow: hidden; /* Handle overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    font-size: 12px !important; /* Adjust font size for mobile */
+  }
+
+  /* Additional rule for phone icon in connect container */
+  .connect-container > div > div:first-child button img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Additional rule for download CV button */
+  .header-container .buttons .download-cv {
+    width: 140px !important;
+    height: 38px !important;
+    font-size: 14px !important;
+  }
+
+  /* Ensure all text elements in header are centered on mobile */
+  .info-contents > * {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Social icons centering */
+  .social-icons {
+    justify-content: center;
+  }
+}

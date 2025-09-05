@@ -141,6 +141,7 @@ const Hero = () => {
       />
 
       <div
+        className="timeline-line"
         style={{
           width: "1.4px",
           height: "50px",
@@ -1739,10 +1740,10 @@ const Hero = () => {
                   />
                 </button>
               </div>
-              <div className="flex items-center relative">
+              <div className="email flex items-center relative">
                 <button
                   onClick={handleEmailClick}
-                  className="flex items-center transition-all duration-300 hover:opacity-80"
+                  className="email-button flex items-center transition-all duration-300 hover:opacity-80"
                   style={{
                     width: "307px",
                     height: "40px",
@@ -1755,6 +1756,7 @@ const Hero = () => {
                   }}
                 >
                   <img
+                    className="email-icon"
                     src={Email}
                     alt="Email"
                     style={{
@@ -1779,9 +1781,22 @@ const Hero = () => {
 
             {snackbar.show && (
               <div
-                className={`fixed top-6 right-6 bg-[#4A5B4C] text-white px-6 py-3 rounded-lg shadow-lg flex items-center z-50 ${
-                  snackbar.animating ? "animate-fade-in" : "animate-fade-out"
-                }`}
+                style={{
+                  position: "fixed",
+                  top: "20px",
+                  right: "20px",
+                  backgroundColor: "#4A5B4C",
+                  color: "white",
+                  padding: "12px 24px",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+                  display: "flex",
+                  alignItems: "center",
+                  zIndex: 9999,
+                  animation: snackbar.animating
+                    ? "fade-in 0.3s ease-out forwards"
+                    : "fade-out 0.3s ease-in forwards",
+                }}
               >
                 <svg
                   className="w-5 h-5 mr-2"
@@ -1789,6 +1804,7 @@ const Hero = () => {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
+                  style={{ width: "20px", height: "20px" }}
                 >
                   <path
                     strokeLinecap="round"

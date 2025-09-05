@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Project.css";
 import UserManual from "/src/assets/eXBatch_Enrolment_System-UserManual.pdf";
 
 const ScrollToTop = () => {
