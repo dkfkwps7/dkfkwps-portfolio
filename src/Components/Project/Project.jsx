@@ -142,7 +142,7 @@ const Project = () => {
                 {!isMobile && (
                   <button
                     onClick={toggleManual}
-                    className="toggle-manual-btn flex items-center px-4 py-2 rounded transition-all duration-300 hover:bg-[#2e3b2f]"
+                    className="toggle-manual-btn flex items-center px-4 py-2 rounded transition-all duration-300"
                     style={{
                       background: "#2A352B",
                       border: "1px solid #EFEFEF",
@@ -150,6 +150,7 @@ const Project = () => {
                       fontFamily: "Readex Pro, sans-serif",
                       fontWeight: "300",
                       fontSize: "16px",
+                      cursor: "pointer",
                     }}
                   >
                     <svg
