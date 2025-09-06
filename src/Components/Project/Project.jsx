@@ -17,13 +17,24 @@ const Project = () => {
   const navigate = useNavigate();
   const [showManual, setShowManual] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isManualAnimating, setIsManualAnimating] = useState(false);
 
   const handleBack = () => {
     navigate(-1);
   };
 
   const toggleManual = () => {
-    setShowManual(!showManual);
+    if (!showManual) {
+      // Opening the manual
+      setShowManual(true);
+      setIsManualAnimating(true);
+    } else {
+      // Closing the manual - add a slight delay for the animation
+      setIsManualAnimating(false);
+      setTimeout(() => {
+        setShowManual(false);
+      }, 300); // Match this with the CSS transition duration
+    }
   };
 
   // Check if device is mobile
@@ -55,7 +66,7 @@ const Project = () => {
         // Check if the click was not on the toggle button
         const toggleButton = document.querySelector(".toggle-manual-btn");
         if (toggleButton && !toggleButton.contains(event.target)) {
-          setShowManual(false);
+          toggleManual();
         }
       }
     };
@@ -69,9 +80,7 @@ const Project = () => {
   return (
     <>
       {/* Background overlay with blur effect */}
-      {showManual && (
-        <div className="fixed inset-0 bg-black/20 backdrop-blur-[2px] z-40 transition-all duration-300"></div>
-      )}
+      <div className={`overlay ${showManual ? "show" : ""}`}></div>
 
       <section
         className={`project-details min-h-screen flex flex-col items-center bg-[#222D23] p-10 relative ${
@@ -129,35 +138,38 @@ const Project = () => {
               </h1>
 
               <div className="flex items-center gap-2">
-                <button
-                  onClick={toggleManual}
-                  className="toggle-manual-btn flex items-center px-4 py-2 rounded transition-all duration-300 hover:bg-[#2e3b2f]"
-                  style={{
-                    background: "#2A352B",
-                    border: "1px solid #EFEFEF",
-                    color: "#EFEFEF",
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "300",
-                    fontSize: "16px",
-                  }}
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="mr-2"
+                {/* View Manual button (desktop only) */}
+                {!isMobile && (
+                  <button
+                    onClick={toggleManual}
+                    className="toggle-manual-btn flex items-center px-4 py-2 rounded transition-all duration-300 hover:bg-[#2e3b2f]"
+                    style={{
+                      background: "#2A352B",
+                      border: "1px solid #EFEFEF",
+                      color: "#EFEFEF",
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "16px",
+                    }}
                   >
-                    <path
-                      d="M14 2H6C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z"
-                      fill="#EFEFEF"
-                    />
-                  </svg>
-                  View User Manual
-                </button>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                    >
+                      <path
+                        d="M14 2H6C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z"
+                        fill="#EFEFEF"
+                      />
+                    </svg>
+                    View User Manual
+                  </button>
+                )}
 
-                {/* Mobile-only download button */}
+                {/* Download button (mobile only) */}
                 {isMobile && (
                   <a
                     href={UserManual}
@@ -186,15 +198,19 @@ const Project = () => {
                         fill="#24FF45"
                       />
                     </svg>
-                    Download
+                    Download Manual
                   </a>
                 )}
               </div>
             </div>
 
-            {/* PDF Manual Container */}
-            {showManual && (
-              <div className="manual-container fixed top-0 right-0 h-full w-1/2 bg-[#2A352B] shadow-2xl z-50 transition-all duration-500 ease-in-out">
+            {/* PDF Manual Container (desktop only) */}
+            {showManual && !isMobile && (
+              <div
+                className={`manual-container ${
+                  isManualAnimating ? "show" : ""
+                }`}
+              >
                 <div className="manual-header">
                   <h2
                     style={{
