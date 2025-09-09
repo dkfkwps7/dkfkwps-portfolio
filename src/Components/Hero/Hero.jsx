@@ -254,1088 +254,140 @@ const Hero = () => {
   ];
 
   return (
-    <section className="about min-h-screen flex flex-col items-center bg-[#222D23] animate-fadeInUp">
-      {/* HEADER SECTION */}
-      <div
-        className="header-container flex items-left justify-left mt-10 mb-10"
-        style={{
-          width: "800px",
-          height: "180px",
-          cursor: "default",
-        }}
-      >
-        <div className="profile-image mr-9">
-          <img
-            src={Profile}
-            alt="Profile"
-            style={{ width: "190px", borderRadius: "10px" }}
-          />
-        </div>
+    <>
+      <section className="about min-h-screen flex flex-col items-center bg-[#222D23] animate-fadeInUp">
+        {/* HEADER SECTION */}
         <div
-          className="info-contents"
-          style={{ width: "620px", height: "137px" }}
+          className="header-container flex items-left justify-left mt-10 mb-10"
+          style={{
+            width: "800px",
+            height: "180px",
+            cursor: "default",
+          }}
         >
-          <h1
-            className="name mb-2.5 mt-1.5"
-            style={{
-              fontFamily: "Readex Pro, sans-serif",
-              fontWeight: "bold",
-              fontSize: "35px",
-              color: "#EFEFEF",
-            }}
-          >
-            Arragen A. Basilio
-          </h1>
-          <div className="education flex items-center mb-3">
+          <div className="profile-image mr-9">
             <img
-              src={Education}
-              alt="Education"
-              style={{ width: "20px", marginRight: "8px" }}
+              src={Profile}
+              alt="Profile"
+              style={{ width: "190px", borderRadius: "10px" }}
             />
-            <p
-              style={{
-                fontFamily: "Readex Pro, sans-serif",
-                fontWeight: "light",
-                fontSize: "13px",
-                color: "#EFEFEF",
-              }}
-            >
-              Bachelor of Science in Information Technology
-            </p>
           </div>
-          <div className="location flex items-center mb-2">
-            <img
-              src={Location}
-              alt="Location"
-              style={{ width: "20px", marginRight: "8px" }}
-            />
-            <p
-              style={{
-                fontFamily: "Readex Pro, sans-serif",
-                fontWeight: "light",
-                fontSize: "13px",
-                color: "#EFEFEF",
-              }}
-            >
-              Calamba City, Laguna
-            </p>
-          </div>
-
           <div
-            className="buttons flex items-center"
-            style={{ width: "250px", height: "50px" }}
+            className="info-contents"
+            style={{ width: "620px", height: "137px" }}
           >
-            <button
-              className="download-cv flex items-center justify-center mr-5 transition-all duration-300 hover:bg-[#d8d8d8] hover:scale-105"
+            <h1
+              className="name mb-2.5 mt-1.5"
               style={{
-                width: "130px",
-                height: "33px",
-                backgroundColor: "#EFEFEF",
                 fontFamily: "Readex Pro, sans-serif",
-                fontWeight: "Bold",
-                fontSize: "13px",
-                color: "#1E1E1E",
-                borderRadius: "4px",
-                border: "none",
-                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: "35px",
+                color: "#EFEFEF",
               }}
-              onClick={handleDownloadCV}
             >
-              Download CV
-            </button>
-            <div className="social-icons flex">
-              <a
-                href="https://www.instagram.com/dkfkwps/"
-                className="mr-2.5 transition-all duration-300 hover:opacity-80 hover:scale-110"
-                target="_blank"
-                rel="noopener noreferrer"
+              Arragen A. Basilio
+            </h1>
+            <div className="education flex items-center mb-3">
+              <img
+                src={Education}
+                alt="Education"
+                style={{ width: "20px", marginRight: "8px" }}
+              />
+              <p
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "light",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
               >
-                <img
-                  src={Instagram}
-                  alt="Instagram"
-                  style={{ width: "40px" }}
-                />
-              </a>
-              <a
-                href="https://github.com/dkfkwps7"
-                className="mr-2.5 transition-all duration-300 hover:opacity-80 hover:scale-110"
-                target="_blank"
-                rel="noopener noreferrer"
+                Bachelor of Science in Information Technology
+              </p>
+            </div>
+            <div className="location flex items-center mb-2">
+              <img
+                src={Location}
+                alt="Location"
+                style={{ width: "20px", marginRight: "8px" }}
+              />
+              <p
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "light",
+                  fontSize: "13px",
+                  color: "#EFEFEF",
+                }}
               >
-                <img src={Github} alt="Github" style={{ width: "40px" }} />
-              </a>
+                Calamba City, Laguna
+              </p>
+            </div>
+
+            <div
+              className="buttons flex items-center"
+              style={{ width: "250px", height: "50px" }}
+            >
               <button
-                className="transition-all duration-300 hover:opacity-80 hover:scale-110 relative"
+                className="download-cv flex items-center justify-center mr-5 transition-all duration-300 hover:bg-[#d8d8d8] hover:scale-105"
                 style={{
-                  background: "none",
+                  width: "130px",
+                  height: "33px",
+                  backgroundColor: "#EFEFEF",
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "Bold",
+                  fontSize: "13px",
+                  color: "#1E1E1E",
+                  borderRadius: "4px",
                   border: "none",
-                  padding: 0,
                   cursor: "pointer",
                 }}
-                onClick={handleDiscordClick}
+                onClick={handleDownloadCV}
               >
-                <img src={Discord} alt="Discord" style={{ width: "40px" }} />
+                Download CV
               </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ABOUT SECTION */}
-      <div
-        className="about-container flex flex-col bg-[#2A3A2B]"
-        style={{
-          width: "800px",
-          height: "300px",
-          border: "#EFEFEF solid 1px",
-          borderRadius: "10px",
-          padding: "20px",
-          cursor: "default",
-        }}
-      >
-        <h2
-          className="-mt-2"
-          style={{
-            fontFamily: "Readex Pro, sans-serif",
-            fontWeight: "600",
-            fontSize: "20px",
-            color: "#EFEFEF",
-            marginBottom: "5px",
-          }}
-        >
-          ABOUT
-        </h2>
-
-        <p
-          style={{
-            fontFamily: "Readex Pro, sans-serif",
-            fontWeight: "300",
-            fontSize: "13.5px",
-            color: "#EFEFEF",
-            lineHeight: "1.3",
-            textAlign: "justify",
-          }}
-        >
-          As a recent Bachelor of Science in Information Technology graduate,
-          I'm passionate about transforming ideas into digital solutions through
-          code. My journey in tech is just beginning, with a strong focus on web
-          development as my foundation. I'm eager to collaborate with and learn
-          from seasoned professionals in the tech industry, believing that
-          growth comes through mentorship and real-world experience.
-          <br />
-          <br />
-          My curiosity extends beyond web technologies—I'm committed to
-          expanding my expertise across multiple programming languages,
-          frameworks, and APIs. While web development is my current focus, I'm
-          equally excited about exploring software development, mobile
-          application creation, and other emerging technologies. I believe in
-          continuous learning and see every project as an opportunity to grow,
-          adapt, and contribute meaningfully to the ever-evolving tech
-          landscape.
-          <br />
-          <br />
-          I'm ready to bring fresh perspectives, dedication, and an insatiable
-          appetite for learning to any development team or project.
-        </p>
-      </div>
-
-      {/* EXPERIENCE AND PROJECT SECTION */}
-      {/* EXPERIENCE CONTAINER */}
-      <div className="flex mt-3 gap-3" style={{ width: "800px" }}>
-        <div
-          className="experience-container flex flex-col bg-[#2A3A2B]"
-          style={{
-            width: "390px",
-            height: "180px",
-            border: "#EFEFEF solid 1px",
-            borderRadius: "10px",
-            padding: "20px",
-            cursor: "default",
-          }}
-        >
-          <h2
-            className="-mt-2"
-            style={{
-              fontFamily: "Readex Pro, sans-serif",
-              fontWeight: "600",
-              fontSize: "20px",
-              color: "#EFEFEF",
-              marginBottom: "10px",
-            }}
-          >
-            EXPERIENCE
-          </h2>
-
-          <div className="flex items-start mb-3">
-            <TimelineElement index={0} />
-
-            <div className="mt-0.6 flex-1">
-              <div className="flex justify-between items-start">
-                <div
-                  className="experience-item flex-1 mr-3"
-                  onMouseEnter={() => setHoveredIndex(0)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ transition: "color 0.3s ease" }}
+              <div className="social-icons flex">
+                <a
+                  href="https://www.instagram.com/dkfkwps/"
+                  className="mr-2.5 transition-all duration-300 hover:opacity-80 hover:scale-110"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <p
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "500",
-                      fontSize: "15px",
-                      color: "#EFEFEF",
-                      transition: "color 0.3s ease",
-                    }}
-                  >
-                    IT Intern
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "300",
-                      fontSize: "11px",
-                      color: "#EFEFEF",
-                      lineHeight: "1.4",
-                      transition: "color 0.3s ease",
-                    }}
-                  >
-                    Am-Europharma Corporation
-                  </p>
-                </div>
-
-                <div
-                  className="mt-3"
-                  style={{
-                    width: "37px",
-                    height: "17px",
-                    borderRadius: "50px",
-                    backgroundColor: "transparent",
-                    border: "1px solid #EFEFEF",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "300",
-                      fontSize: "9px",
-                      color: "#EFEFEF",
-                    }}
-                  >
-                    2025
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex justify-between items-start mt-8.5">
-                <div
-                  className="experience-item flex-1 mr-3"
-                  onMouseEnter={() => setHoveredIndex(1)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ transition: "color 0.3s ease" }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "500",
-                      fontSize: "15px",
-                      color: "#EFEFEF",
-                      transition: "color 0.3s ease",
-                    }}
-                  >
-                    BS Information Technology
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "300",
-                      fontSize: "11px",
-                      color: "#EFEFEF",
-                      lineHeight: "1.4",
-                      transition: "color 0.3s ease",
-                    }}
-                  >
-                    University of Perpetual Help System DALTA
-                  </p>
-                </div>
-
-                <div
-                  className="mt-3"
-                  style={{
-                    width: "37px",
-                    height: "17px",
-                    borderRadius: "50px",
-                    backgroundColor: "transparent",
-                    border: "1px solid #EFEFEF",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "300",
-                      fontSize: "9px",
-                      color: "#EFEFEF",
-                    }}
-                  >
-                    2025
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* PROJECT SECTION */}
-        <div
-          className="project-container flex flex-col bg-[#2A3A2B] mb-3"
-          style={{
-            width: "410px",
-            height: "180px",
-            border: "#EFEFEF solid 1px",
-            borderRadius: "10px",
-            padding: "20px",
-          }}
-        >
-          <h2
-            className="-mt-2"
-            style={{
-              fontFamily: "Readex Pro, sans-serif",
-              fontWeight: "600",
-              fontSize: "20px",
-              color: "#EFEFEF",
-              marginBottom: "10px",
-              cursor: "default",
-            }}
-          >
-            PROJECT
-          </h2>
-
-          <div className="project-item">
-            <div className="flex justify-between items-center mb-2">
-              <h3
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "500",
-                  fontSize: "15px",
-                  color: "#EFEFEF",
-                  cursor: "default",
-                }}
-              >
-                eXBatch Enrolment System
-              </h3>
-
-              <Link
-                to="/project"
-                className="flex items-center transition-all duration-300 hover:opacity-80 hover:scale-105"
-                style={{
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: 0,
-                  textDecoration: "none",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "300",
-                    fontSize: "12px",
-                    color: "#EFEFEF",
-                    marginRight: "4px",
-                  }}
-                >
-                  View
-                </span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 512 512"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ marginTop: "0.5px" }}
-                >
-                  <path
-                    d="M184.6 408.3c-7.8 7.8-20.5 7.8-28.3 0s-7.8-20.5 0-28.3L297.4 256 156.3 114.9c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l152 152c7.8 7.8 7.8 20.5 0 28.3l-152 152z"
-                    fill="#EFEFEF"
+                  <img
+                    src={Instagram}
+                    alt="Instagram"
+                    style={{ width: "40px" }}
                   />
-                </svg>
-              </Link>
-            </div>
-
-            <p
-              style={{
-                fontFamily: "Readex Pro, sans-serif",
-                fontWeight: "300",
-                fontSize: "12px",
-                color: "#EFEFEF",
-                lineHeight: "1.3",
-                textAlign: "justify",
-                cursor: "default",
-              }}
-            >
-              A web-based application designed to streamline the enrolment of
-              batch numbers for Toll-supplied materials into the EXACT system.
-              Offering role-based access for easy submission, approval, and
-              tracking.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* TECH STACK SECTION */}
-      <div
-        className="tech-stack-container flex flex-col bg-[#2A3A2B] mb-3"
-        style={{
-          width: "800px",
-          height: "420px",
-          border: "#EFEFEF solid 1px",
-          borderRadius: "10px",
-          padding: "20px",
-          paddingBottom: "10px",
-        }}
-      >
-        <h2
-          className="-mt-2"
-          style={{
-            fontFamily: "Readex Pro, sans-serif",
-            fontWeight: "600",
-            fontSize: "20px",
-            color: "#EFEFEF",
-            marginBottom: "15px",
-          }}
-        >
-          TECH STACK
-        </h2>
-
-        {/* LOGO LOOP SECTION */}
-        <div
-          className="logo-loop-container mb-6 overflow-hidden relative"
-          style={{
-            width: "100%",
-            height: "65px",
-            backgroundColor: "transparent",
-            borderRadius: "5px",
-          }}
-          onMouseEnter={() => {
-            setIsLogoLoopHovered(true);
-            setIsPaused(true);
-          }}
-          onMouseLeave={() => {
-            setIsLogoLoopHovered(false);
-            setHoveredIndex(null);
-            setTimeout(() => setIsPaused(false), 50);
-          }}
-        >
-          <div
-            ref={logoLoopRef}
-            className="logo-loop flex items-center h-full"
-            style={{
-              width: "max-content",
-              transition: isPaused ? "transform 0.5s ease-out" : "none",
-            }}
-          >
-            {logos.concat(logos).map((logo, index) => (
-              <div
-                key={index}
-                className="logo-item flex items-center justify-center mx-4 transition-all duration-300"
-                style={{
-                  width: "35px",
-                  height: "35px",
-                  flexShrink: 0,
-                  transform:
-                    isLogoLoopHovered && hoveredIndex === index
-                      ? "scale(1.1)"
-                      : "scale(1)",
-                  filter:
-                    isLogoLoopHovered && hoveredIndex === index
-                      ? "brightness(1.2) drop-shadow(0 0 4px #24FF45)"
-                      : "brightness(1)",
-                  zIndex: isLogoLoopHovered && hoveredIndex === index ? 10 : 1,
-                }}
-                onMouseEnter={() => {
-                  setHoveredIndex(index);
-                  setIsLogoLoopHovered(true);
-                  setIsPaused(true);
-                }}
-                onMouseLeave={() => {
-                  setHoveredIndex(null);
-                }}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  style={{
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "contain",
-                    transition: "all 0.3s ease",
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "50px",
-              height: "100%",
-              background: "linear-gradient(to right, #2F4530, transparent)",
-              zIndex: 2,
-              pointerEvents: "none",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              right: 0,
-              width: "50px",
-              height: "100%",
-              background: "linear-gradient(to left, #2F4530, transparent)",
-              zIndex: 2,
-              pointerEvents: "none",
-            }}
-          />
-        </div>
-
-        {/* Tech Stack Containers */}
-        <div className="flex flex-wrap justify-between">
-          {/* Development Tools Container */}
-          <div
-            className="tech-category"
-            style={{
-              width: "175px",
-              height: "250px",
-              backgroundColor: "#2F4530",
-              borderRadius: "10px",
-              border: "#EFEFEF solid 1px",
-              padding: "15px",
-              marginBottom: "15px",
-            }}
-          >
-            <h3
-              style={{
-                fontFamily: "Readex Pro, sans-serif",
-                fontWeight: "500",
-                fontSize: "15px",
-                color: "#EFEFEF",
-                textAlign: "center",
-                marginBottom: "15px",
-                lineHeight: "1.2",
-              }}
-            >
-              Development <br />
-              Tools
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {[
-                "VS Code",
-                "XAMPP",
-                "Windsurf",
-                "Cursor",
-                "Visual Studio",
-                "Git",
-                "Pycharm",
-                "Github",
-              ].map((dev) => (
-                <span
-                  key={dev}
-                  className="dev-tag"
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "300",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                    border: "1px solid #EFEFEF",
-                    borderRadius: "3px",
-                    padding: "2px 8px",
-                    display: "inline-block",
-                  }}
+                </a>
+                <a
+                  href="https://github.com/dkfkwps7"
+                  className="mr-2.5 transition-all duration-300 hover:opacity-80 hover:scale-110"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  {dev}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Frontend Container */}
-          <div
-            className="tech-category"
-            style={{
-              width: "210px",
-              height: "250px",
-              backgroundColor: "#2F4530",
-              borderRadius: "10px",
-              border: "#EFEFEF solid 1px",
-              padding: "15px",
-              marginBottom: "15px",
-            }}
-          >
-            <h3
-              style={{
-                fontFamily: "Readex Pro, sans-serif",
-                fontWeight: "500",
-                fontSize: "16px",
-                color: "#EFEFEF",
-                textAlign: "center",
-                marginBottom: "10px",
-              }}
-            >
-              Frontend
-            </h3>
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                HTML
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
+                  <img src={Github} alt="Github" style={{ width: "40px" }} />
+                </a>
+                <button
+                  className="transition-all duration-300 hover:opacity-80 hover:scale-110 relative"
                   style={{
-                    width: "60px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    cursor: "pointer",
                   }}
-                />
-              </div>
-            </div>
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                CSS
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "60px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                JavaScript
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "50px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                Tailwind CSS
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "55px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                React.js
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "40px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-3">
-              {["Bootstrap", "Material UI", "Vite", "HeroUI"].map(
-                (frontend) => (
-                  <span
-                    key={frontend}
-                    className="frontend-tag"
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "300",
-                      fontSize: "12px",
-                      color: "#EFEFEF",
-                      border: "1px solid #EFEFEF",
-                      borderRadius: "3px",
-                      padding: "2px 8px",
-                      display: "inline-block",
-                    }}
-                  >
-                    {frontend}
-                  </span>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Backend Container */}
-          <div
-            className="tech-category"
-            style={{
-              width: "190px",
-              height: "250px",
-              backgroundColor: "#2F4530",
-              borderRadius: "10px",
-              border: "#EFEFEF solid 1px",
-              padding: "15px",
-              marginBottom: "15px",
-            }}
-          >
-            <h3
-              style={{
-                fontFamily: "Readex Pro, sans-serif",
-                fontWeight: "500",
-                fontSize: "16px",
-                color: "#EFEFEF",
-                textAlign: "center",
-                marginBottom: "10px",
-              }}
-            >
-              Backend
-            </h3>
-
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                PHP
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "55px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                Python
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "45px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                Java
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "40px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                C++
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "45px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between mb-1">
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "400",
-                  fontSize: "13px",
-                  color: "#EFEFEF",
-                }}
-              >
-                VB.Net
-              </span>
-              <div
-                style={{
-                  width: "80px",
-                  height: "6px",
-                  backgroundColor: "#EFEFEF",
-                  borderRadius: "3px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "30px",
-                    height: "6px",
-                    backgroundColor: "#24FF45",
-                    borderRadius: "3px",
-                    position: "absolute",
-                  }}
-                />
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-3">
-              {["MySQL", "C#"].map((frontend) => (
-                <span
-                  key={frontend}
-                  className="backend-tag"
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "300",
-                    fontSize: "12px",
-                    color: "#EFEFEF",
-                    border: "1px solid #EFEFEF",
-                    borderRadius: "3px",
-                    padding: "2px 8px",
-                    display: "inline-block",
-                  }}
+                  onClick={handleDiscordClick}
                 >
-                  {frontend}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Design Tools Container */}
-          <div
-            className="tech-category"
-            style={{
-              width: "160px",
-              height: "250px",
-              backgroundColor: "#2F4530",
-              borderRadius: "10px",
-              border: "#EFEFEF solid 1px",
-              padding: "15px",
-              marginBottom: "15px",
-            }}
-          >
-            <h3
-              style={{
-                fontFamily: "Readex Pro, sans-serif",
-                fontWeight: "500",
-                fontSize: "16px",
-                color: "#EFEFEF",
-                textAlign: "center",
-                marginBottom: "10px",
-              }}
-            >
-              Design Tools
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2 mt-3">
-              {["Canva", "Figma", "Adobe Photoshop", "Adobe Animate"].map(
-                (frontend) => (
-                  <span
-                    key={frontend}
-                    className="design-tag"
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "300",
-                      fontSize: "12px",
-                      color: "#EFEFEF",
-                      border: "1px solid #EFEFEF",
-                      borderRadius: "3px",
-                      padding: "2px 8px",
-                      display: "inline-block",
-                    }}
-                  >
-                    {frontend}
-                  </span>
-                )
-              )}
+                  <img src={Discord} alt="Discord" style={{ width: "40px" }} />
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* NEW SECTIONS: ACHIEVEMENTS, LEADERSHIP ROLE, CONNECT */}
-      <div className="flex gap-3" style={{ width: "800px" }}>
-        {/* ACHIEVEMENTS SECTION */}
+
+        {/* ABOUT SECTION */}
         <div
-          className="achievements-container flex flex-col bg-[#2A3A2B]"
+          className="about-container flex flex-col bg-[#2A3A2B]"
           style={{
-            width: "385px",
-            height: "310px",
+            width: "800px",
+            height: "300px",
             border: "#EFEFEF solid 1px",
             borderRadius: "10px",
             padding: "20px",
@@ -1349,224 +401,54 @@ const Hero = () => {
               fontWeight: "600",
               fontSize: "20px",
               color: "#EFEFEF",
-              marginBottom: "10px",
+              marginBottom: "5px",
             }}
           >
-            ACHIEVEMENTS
+            ABOUT
           </h2>
 
-          {/* Achievement 1 */}
-          <div
-            className="achievement-item flex justify-between items-start"
+          <p
             style={{
-              width: "auto",
-              height: "80px",
-              padding: "10px",
-              marginBottom: "5px",
-              backgroundColor: "#2F4530",
-              borderRadius: "5px",
-              border: "#EFEFEF solid 1px",
+              fontFamily: "Readex Pro, sans-serif",
+              fontWeight: "300",
+              fontSize: "13.5px",
+              color: "#EFEFEF",
+              lineHeight: "1.3",
+              textAlign: "justify",
             }}
           >
-            <div className="flex flex-col">
-              <h3
-                className=""
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "500",
-                  fontSize: "15px",
-                  color: "#EFEFEF",
-                  marginBottom: "5px",
-                  textAlign: "left",
-                }}
-              >
-                Outstanding in Practicum
-              </h3>
-              <p
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "300",
-                  fontSize: "9px",
-                  color: "#EFEFEF",
-                  lineHeight: "1.5",
-                  textAlign: "left",
-                  marginBottom: "5px",
-                }}
-              >
-                Recognized for outstanding performance and professionalism
-                during On-the-Job Training at Am-Europharma Corporation.
-              </p>
-            </div>
-            <div
-              style={{
-                width: "37px",
-                height: "17px",
-                borderRadius: "50px",
-                backgroundColor: "transparent",
-                border: "1px solid #EFEFEF",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                marginTop: "3px",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "300",
-                  fontSize: "9px",
-                  color: "#EFEFEF",
-                }}
-              >
-                2025
-              </span>
-            </div>
-          </div>
-
-          {/* Achievement 2 */}
-          <div
-            className="achievement-item flex justify-between items-start"
-            style={{
-              width: "auto",
-              height: "70px",
-              padding: "10px",
-              marginBottom: "5px",
-              backgroundColor: "#2F4530",
-              borderRadius: "5px",
-              border: "#EFEFEF solid 1px",
-            }}
-          >
-            <div className="flex flex-col">
-              <h3
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "500",
-                  fontSize: "15px",
-                  color: "#EFEFEF",
-                  marginBottom: "5px",
-                  textAlign: "left",
-                }}
-              >
-                Dean's Lister
-              </h3>
-              <p
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "300",
-                  fontSize: "12px",
-                  color: "#EFEFEF",
-                  lineHeight: "1.2",
-                  textAlign: "left",
-                  marginBottom: "5px",
-                }}
-              >
-                Achieved a General Weighted Average of 1.55
-              </p>
-            </div>
-            <div
-              style={{
-                width: "37px",
-                height: "17px",
-                borderRadius: "50px",
-                backgroundColor: "transparent",
-                border: "1px solid #EFEFEF",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                marginTop: "3px",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "300",
-                  fontSize: "9px",
-                  color: "#EFEFEF",
-                }}
-              >
-                2024
-              </span>
-            </div>
-          </div>
-
-          {/* Achievement 3 */}
-          <div
-            className="achievement-item flex justify-between items-start"
-            style={{
-              width: "auto",
-              height: "80px",
-              padding: "10px",
-              marginBottom: "5px",
-              backgroundColor: "#2F4530",
-              borderRadius: "5px",
-              border: "#EFEFEF solid 1px",
-            }}
-          >
-            <div className="flex flex-col">
-              <h3
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "500",
-                  fontSize: "15px",
-                  color: "#EFEFEF",
-                  marginBottom: "5px",
-                  textAlign: "left",
-                }}
-              >
-                Top Performing Student
-              </h3>
-              <p
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "300",
-                  fontSize: "9px",
-                  color: "#EFEFEF",
-                  lineHeight: "1.2",
-                  textAlign: "left",
-                  marginBottom: "5px",
-                }}
-              >
-                Recognized for outstanding academic performance in the College
-                of Computer Studies
-              </p>
-            </div>
-            <div
-              style={{
-                width: "37px",
-                height: "17px",
-                borderRadius: "50px",
-                backgroundColor: "transparent",
-                border: "1px solid #EFEFEF",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                marginTop: "3px",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "Readex Pro, sans-serif",
-                  fontWeight: "300",
-                  fontSize: "9px",
-                  color: "#EFEFEF",
-                }}
-              >
-                2024
-              </span>
-            </div>
-          </div>
+            As a recent Bachelor of Science in Information Technology graduate,
+            I'm passionate about transforming ideas into digital solutions
+            through code. My journey in tech is just beginning, with a strong
+            focus on web development as my foundation. I'm eager to collaborate
+            with and learn from seasoned professionals in the tech industry,
+            believing that growth comes through mentorship and real-world
+            experience.
+            <br />
+            <br />
+            My curiosity extends beyond web technologies—I'm committed to
+            expanding my expertise across multiple programming languages,
+            frameworks, and APIs. While web development is my current focus, I'm
+            equally excited about exploring software development, mobile
+            application creation, and other emerging technologies. I believe in
+            continuous learning and see every project as an opportunity to grow,
+            adapt, and contribute meaningfully to the ever-evolving tech
+            landscape.
+            <br />
+            <br />
+            I'm ready to bring fresh perspectives, dedication, and an insatiable
+            appetite for learning to any development team or project.
+          </p>
         </div>
 
-        <div className="flex flex-col gap-3" style={{ width: "400px" }}>
-          {/* LEADERSHIP ROLE SECTION */}
+        {/* EXPERIENCE AND PROJECT SECTION */}
+        {/* EXPERIENCE CONTAINER */}
+        <div className="flex mt-3 gap-3" style={{ width: "800px" }}>
           <div
-            className="leadership-container flex flex-col bg-[#2A3A2B]"
+            className="experience-container flex flex-col bg-[#2A3A2B]"
             style={{
-              width: "405px",
-              height: "185px",
+              width: "390px",
+              height: "180px",
               border: "#EFEFEF solid 1px",
               borderRadius: "10px",
               padding: "20px",
@@ -1583,7 +465,7 @@ const Hero = () => {
                 marginBottom: "10px",
               }}
             >
-              LEADERSHIP ROLE
+              EXPERIENCE
             </h2>
 
             <div className="flex items-start mb-3">
@@ -1606,26 +488,26 @@ const Hero = () => {
                         transition: "color 0.3s ease",
                       }}
                     >
-                      Public Relations Officer (P.R.O)
+                      IT Intern
                     </p>
                     <p
                       style={{
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "300",
-                        fontSize: "9px",
+                        fontSize: "11px",
                         color: "#EFEFEF",
                         lineHeight: "1.4",
                         transition: "color 0.3s ease",
                       }}
                     >
-                      UPHSD College of Computer Studies Student Council
+                      Am-Europharma Corporation
                     </p>
                   </div>
 
                   <div
                     className="mt-3"
                     style={{
-                      width: "73px",
+                      width: "37px",
                       height: "17px",
                       borderRadius: "50px",
                       backgroundColor: "transparent",
@@ -1644,12 +526,12 @@ const Hero = () => {
                         color: "#EFEFEF",
                       }}
                     >
-                      2023 - 2025
+                      2025
                     </span>
                   </div>
                 </div>
 
-                <div className="flex justify-between items-start mt-9">
+                <div className="flex justify-between items-start mt-8.5">
                   <div
                     className="experience-item flex-1 mr-3"
                     onMouseEnter={() => setHoveredIndex(1)}
@@ -1665,26 +547,26 @@ const Hero = () => {
                         transition: "color 0.3s ease",
                       }}
                     >
-                      Business Manager
+                      BS Information Technology
                     </p>
                     <p
                       style={{
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "300",
-                        fontSize: "9px",
+                        fontSize: "11px",
                         color: "#EFEFEF",
                         lineHeight: "1.4",
                         transition: "color 0.3s ease",
                       }}
                     >
-                      UPHSD College of Computer Studies Student Council
+                      University of Perpetual Help System DALTA
                     </p>
                   </div>
 
                   <div
                     className="mt-3"
                     style={{
-                      width: "73px",
+                      width: "37px",
                       height: "17px",
                       borderRadius: "50px",
                       backgroundColor: "transparent",
@@ -1703,7 +585,7 @@ const Hero = () => {
                         color: "#EFEFEF",
                       }}
                     >
-                      2022 - 2023
+                      2025
                     </span>
                   </div>
                 </div>
@@ -1711,12 +593,752 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* CONNECT SECTION */}
+          {/* PROJECT SECTION */}
           <div
-            className="connect-container flex flex-col bg-[#2A3A2B] relative"
+            className="project-container flex flex-col bg-[#2A3A2B] mb-3"
             style={{
-              width: "405px",
-              height: "115px",
+              width: "410px",
+              height: "180px",
+              border: "#EFEFEF solid 1px",
+              borderRadius: "10px",
+              padding: "20px",
+            }}
+          >
+            <h2
+              className="-mt-2"
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "600",
+                fontSize: "20px",
+                color: "#EFEFEF",
+                marginBottom: "10px",
+                cursor: "default",
+              }}
+            >
+              PROJECT
+            </h2>
+
+            <div className="project-item">
+              <div className="flex justify-between items-center mb-2">
+                <h3
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "500",
+                    fontSize: "15px",
+                    color: "#EFEFEF",
+                    cursor: "default",
+                  }}
+                >
+                  eXBatch Enrolment System
+                </h3>
+
+                <Link
+                  to="/project"
+                  className="flex items-center transition-all duration-300 hover:opacity-80 hover:scale-105"
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: 0,
+                    textDecoration: "none",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "12px",
+                      color: "#EFEFEF",
+                      marginRight: "4px",
+                    }}
+                  >
+                    View
+                  </span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 512 512"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ marginTop: "0.5px" }}
+                  >
+                    <path
+                      d="M184.6 408.3c-7.8 7.8-20.5 7.8-28.3 0s-7.8-20.5 0-28.3L297.4 256 156.3 114.9c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l152 152c7.8 7.8 7.8 20.5 0 28.3l-152 152z"
+                      fill="#EFEFEF"
+                    />
+                  </svg>
+                </Link>
+              </div>
+
+              <p
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "300",
+                  fontSize: "12px",
+                  color: "#EFEFEF",
+                  lineHeight: "1.3",
+                  textAlign: "justify",
+                  cursor: "default",
+                }}
+              >
+                A web-based application designed to streamline the enrolment of
+                batch numbers for Toll-supplied materials into the EXACT system.
+                Offering role-based access for easy submission, approval, and
+                tracking.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* TECH STACK SECTION */}
+        <div
+          className="tech-stack-container flex flex-col bg-[#2A3A2B] mb-3"
+          style={{
+            width: "800px",
+            height: "420px",
+            border: "#EFEFEF solid 1px",
+            borderRadius: "10px",
+            padding: "20px",
+            paddingBottom: "10px",
+          }}
+        >
+          <h2
+            className="-mt-2"
+            style={{
+              fontFamily: "Readex Pro, sans-serif",
+              fontWeight: "600",
+              fontSize: "20px",
+              color: "#EFEFEF",
+              marginBottom: "15px",
+            }}
+          >
+            TECH STACK
+          </h2>
+
+          {/* LOGO LOOP SECTION */}
+          <div
+            className="logo-loop-container mb-6 overflow-hidden relative"
+            style={{
+              width: "100%",
+              height: "65px",
+              backgroundColor: "transparent",
+              borderRadius: "5px",
+            }}
+            onMouseEnter={() => {
+              setIsLogoLoopHovered(true);
+              setIsPaused(true);
+            }}
+            onMouseLeave={() => {
+              setIsLogoLoopHovered(false);
+              setHoveredIndex(null);
+              setTimeout(() => setIsPaused(false), 50);
+            }}
+          >
+            <div
+              ref={logoLoopRef}
+              className="logo-loop flex items-center h-full"
+              style={{
+                width: "max-content",
+                transition: isPaused ? "transform 0.5s ease-out" : "none",
+              }}
+            >
+              {logos.concat(logos).map((logo, index) => (
+                <div
+                  key={index}
+                  className="logo-item flex items-center justify-center mx-4 transition-all duration-300"
+                  style={{
+                    width: "35px",
+                    height: "35px",
+                    flexShrink: 0,
+                    transform:
+                      isLogoLoopHovered && hoveredIndex === index
+                        ? "scale(1.1)"
+                        : "scale(1)",
+                    filter:
+                      isLogoLoopHovered && hoveredIndex === index
+                        ? "brightness(1.2) drop-shadow(0 0 4px #24FF45)"
+                        : "brightness(1)",
+                    zIndex:
+                      isLogoLoopHovered && hoveredIndex === index ? 10 : 1,
+                  }}
+                  onMouseEnter={() => {
+                    setHoveredIndex(index);
+                    setIsLogoLoopHovered(true);
+                    setIsPaused(true);
+                  }}
+                  onMouseLeave={() => {
+                    setHoveredIndex(null);
+                  }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      objectFit: "contain",
+                      transition: "all 0.3s ease",
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "50px",
+                height: "100%",
+                background: "linear-gradient(to right, #2F4530, transparent)",
+                zIndex: 2,
+                pointerEvents: "none",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                width: "50px",
+                height: "100%",
+                background: "linear-gradient(to left, #2F4530, transparent)",
+                zIndex: 2,
+                pointerEvents: "none",
+              }}
+            />
+          </div>
+
+          {/* Tech Stack Containers */}
+          <div className="flex flex-wrap justify-between">
+            {/* Development Tools Container */}
+            <div
+              className="tech-category"
+              style={{
+                width: "175px",
+                height: "250px",
+                backgroundColor: "#2F4530",
+                borderRadius: "10px",
+                border: "#EFEFEF solid 1px",
+                padding: "15px",
+                marginBottom: "15px",
+              }}
+            >
+              <h3
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "500",
+                  fontSize: "15px",
+                  color: "#EFEFEF",
+                  textAlign: "center",
+                  marginBottom: "15px",
+                  lineHeight: "1.2",
+                }}
+              >
+                Development <br />
+                Tools
+              </h3>
+              <div className="flex flex-wrap justify-center gap-2">
+                {[
+                  "VS Code",
+                  "XAMPP",
+                  "Windsurf",
+                  "Cursor",
+                  "Visual Studio",
+                  "Git",
+                  "Pycharm",
+                  "Github",
+                ].map((dev) => (
+                  <span
+                    key={dev}
+                    className="dev-tag"
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "13px",
+                      color: "#EFEFEF",
+                      border: "1px solid #EFEFEF",
+                      borderRadius: "3px",
+                      padding: "2px 8px",
+                      display: "inline-block",
+                    }}
+                  >
+                    {dev}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Frontend Container */}
+            <div
+              className="tech-category"
+              style={{
+                width: "210px",
+                height: "250px",
+                backgroundColor: "#2F4530",
+                borderRadius: "10px",
+                border: "#EFEFEF solid 1px",
+                padding: "15px",
+                marginBottom: "15px",
+              }}
+            >
+              <h3
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "500",
+                  fontSize: "16px",
+                  color: "#EFEFEF",
+                  textAlign: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                Frontend
+              </h3>
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  HTML
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "60px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  CSS
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "60px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  JavaScript
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "50px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  Tailwind CSS
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "55px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  React.js
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "40px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {["Bootstrap", "Material UI", "Vite", "HeroUI"].map(
+                  (frontend) => (
+                    <span
+                      key={frontend}
+                      className="frontend-tag"
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "300",
+                        fontSize: "12px",
+                        color: "#EFEFEF",
+                        border: "1px solid #EFEFEF",
+                        borderRadius: "3px",
+                        padding: "2px 8px",
+                        display: "inline-block",
+                      }}
+                    >
+                      {frontend}
+                    </span>
+                  )
+                )}
+              </div>
+            </div>
+
+            {/* Backend Container */}
+            <div
+              className="tech-category"
+              style={{
+                width: "190px",
+                height: "250px",
+                backgroundColor: "#2F4530",
+                borderRadius: "10px",
+                border: "#EFEFEF solid 1px",
+                padding: "15px",
+                marginBottom: "15px",
+              }}
+            >
+              <h3
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "500",
+                  fontSize: "16px",
+                  color: "#EFEFEF",
+                  textAlign: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                Backend
+              </h3>
+
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  PHP
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "55px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  Python
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "45px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  Java
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "40px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  C++
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "45px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between mb-1">
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "400",
+                    fontSize: "13px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  VB.Net
+                </span>
+                <div
+                  style={{
+                    width: "80px",
+                    height: "6px",
+                    backgroundColor: "#EFEFEF",
+                    borderRadius: "3px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "30px",
+                      height: "6px",
+                      backgroundColor: "#24FF45",
+                      borderRadius: "3px",
+                      position: "absolute",
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {["MySQL", "C#"].map((frontend) => (
+                  <span
+                    key={frontend}
+                    className="backend-tag"
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "12px",
+                      color: "#EFEFEF",
+                      border: "1px solid #EFEFEF",
+                      borderRadius: "3px",
+                      padding: "2px 8px",
+                      display: "inline-block",
+                    }}
+                  >
+                    {frontend}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Design Tools Container */}
+            <div
+              className="tech-category"
+              style={{
+                width: "160px",
+                height: "250px",
+                backgroundColor: "#2F4530",
+                borderRadius: "10px",
+                border: "#EFEFEF solid 1px",
+                padding: "15px",
+                marginBottom: "15px",
+              }}
+            >
+              <h3
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "500",
+                  fontSize: "16px",
+                  color: "#EFEFEF",
+                  textAlign: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                Design Tools
+              </h3>
+              <div className="flex flex-wrap justify-center gap-2 mt-3">
+                {["Canva", "Figma", "Adobe Photoshop", "Adobe Animate"].map(
+                  (frontend) => (
+                    <span
+                      key={frontend}
+                      className="design-tag"
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "300",
+                        fontSize: "12px",
+                        color: "#EFEFEF",
+                        border: "1px solid #EFEFEF",
+                        borderRadius: "3px",
+                        padding: "2px 8px",
+                        display: "inline-block",
+                      }}
+                    >
+                      {frontend}
+                    </span>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* NEW SECTIONS: ACHIEVEMENTS, LEADERSHIP ROLE, CONNECT */}
+        <div className="flex gap-3" style={{ width: "800px" }}>
+          {/* ACHIEVEMENTS SECTION */}
+          <div
+            className="achievements-container flex flex-col bg-[#2A3A2B]"
+            style={{
+              width: "385px",
+              height: "310px",
               border: "#EFEFEF solid 1px",
               borderRadius: "10px",
               padding: "20px",
@@ -1733,231 +1355,613 @@ const Hero = () => {
                 marginBottom: "10px",
               }}
             >
-              CONNECT
+              ACHIEVEMENTS
             </h2>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center relative">
-                <button
-                  onClick={handlePhoneClick}
-                  className="transition-all duration-300 hover:opacity-80 hover:scale-110"
+            {/* Achievement 1 */}
+            <div
+              className="achievement-item flex justify-between items-start"
+              style={{
+                width: "auto",
+                height: "80px",
+                padding: "10px",
+                marginBottom: "5px",
+                backgroundColor: "#2F4530",
+                borderRadius: "5px",
+                border: "#EFEFEF solid 1px",
+              }}
+            >
+              <div className="flex flex-col">
+                <h3
+                  className=""
                   style={{
-                    background: "none",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "500",
+                    fontSize: "15px",
+                    color: "#EFEFEF",
+                    marginBottom: "5px",
+                    textAlign: "left",
                   }}
                 >
-                  <img
-                    src={Phone}
-                    alt="Phone"
-                    style={{
-                      width: "35px",
-                      height: "35px",
-                    }}
-                  />
-                </button>
+                  Outstanding in Practicum
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "9px",
+                    color: "#EFEFEF",
+                    lineHeight: "1.5",
+                    textAlign: "left",
+                    marginBottom: "5px",
+                  }}
+                >
+                  Recognized for outstanding performance and professionalism
+                  during On-the-Job Training at Am-Europharma Corporation.
+                </p>
               </div>
-              <div className="flex items-center ml-3">
-                <a
-                  href="https://www.linkedin.com/in/arragen-basilio-594756383/"
-                  className="transition-all duration-300 hover:opacity-80 hover:scale-110"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <div
+                style={{
+                  width: "37px",
+                  height: "17px",
+                  borderRadius: "50px",
+                  backgroundColor: "transparent",
+                  border: "1px solid #EFEFEF",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  marginTop: "3px",
+                }}
+              >
+                <span
                   style={{
-                    background: "none",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "9px",
+                    color: "#EFEFEF",
                   }}
                 >
-                  <img
-                    src={LinkedIn}
-                    alt="LinkedIn"
-                    style={{
-                      width: "35px",
-                      height: "35px",
-                    }}
-                  />
-                </a>
-              </div>
-              <div className="email flex items-center relative ml-3">
-                <button
-                  onClick={handleEmailClick}
-                  className="email-button flex items-center transition-all duration-300 hover:opacity-80"
-                  style={{
-                    width: "260px",
-                    height: "40px",
-                    backgroundColor: "#2F4530",
-                    border: "#EFEFEF solid 1px",
-                    borderRadius: "5px",
-                    padding: "5px",
-                    background: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  <img
-                    className="email-icon"
-                    src={Email}
-                    alt="Email"
-                    style={{
-                      width: "30px",
-                      height: "30px",
-                      marginRight: "10px",
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "400",
-                      fontSize: "14px",
-                      color: "#EFEFEF",
-                    }}
-                  >
-                    arragenbasilio07@gmail.com
-                  </span>
-                </button>
+                  2025
+                </span>
               </div>
             </div>
 
-            {snackbar.show && (
+            {/* Achievement 2 */}
+            <div
+              className="achievement-item flex justify-between items-start"
+              style={{
+                width: "auto",
+                height: "70px",
+                padding: "10px",
+                marginBottom: "5px",
+                backgroundColor: "#2F4530",
+                borderRadius: "5px",
+                border: "#EFEFEF solid 1px",
+              }}
+            >
+              <div className="flex flex-col">
+                <h3
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "500",
+                    fontSize: "15px",
+                    color: "#EFEFEF",
+                    marginBottom: "5px",
+                    textAlign: "left",
+                  }}
+                >
+                  Dean's Lister
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "12px",
+                    color: "#EFEFEF",
+                    lineHeight: "1.2",
+                    textAlign: "left",
+                    marginBottom: "5px",
+                  }}
+                >
+                  Achieved a General Weighted Average of 1.55
+                </p>
+              </div>
               <div
                 style={{
-                  position: "fixed",
-                  top: "20px",
-                  right: "20px",
-                  backgroundColor: "#4A5B4C",
-                  color: "white",
-                  padding: "12px 24px",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+                  width: "37px",
+                  height: "17px",
+                  borderRadius: "50px",
+                  backgroundColor: "transparent",
+                  border: "1px solid #EFEFEF",
                   display: "flex",
                   alignItems: "center",
-                  zIndex: 9999,
-                  animation: snackbar.animating
-                    ? "fade-in 0.3s ease-out forwards"
-                    : "fade-out 0.3s ease-in forwards",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  marginTop: "3px",
                 }}
               >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ width: "20px", height: "20px" }}
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "9px",
+                    color: "#EFEFEF",
+                  }}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-                <span>{snackbar.message}</span>
+                  2024
+                </span>
               </div>
-            )}
+            </div>
 
-            <style jsx>{`
-              @keyframes fade-in {
-                from {
-                  opacity: 0;
-                  transform: translateY(-20px) scale(0.9);
-                }
-                to {
-                  opacity: 1;
-                  transform: translateY(0) scale(1);
-                }
-              }
+            {/* Achievement 3 */}
+            <div
+              className="achievement-item flex justify-between items-start"
+              style={{
+                width: "auto",
+                height: "80px",
+                padding: "10px",
+                marginBottom: "5px",
+                backgroundColor: "#2F4530",
+                borderRadius: "5px",
+                border: "#EFEFEF solid 1px",
+              }}
+            >
+              <div className="flex flex-col">
+                <h3
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "500",
+                    fontSize: "15px",
+                    color: "#EFEFEF",
+                    marginBottom: "5px",
+                    textAlign: "left",
+                  }}
+                >
+                  Top Performing Student
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "9px",
+                    color: "#EFEFEF",
+                    lineHeight: "1.2",
+                    textAlign: "left",
+                    marginBottom: "5px",
+                  }}
+                >
+                  Recognized for outstanding academic performance in the College
+                  of Computer Studies
+                </p>
+              </div>
+              <div
+                style={{
+                  width: "37px",
+                  height: "17px",
+                  borderRadius: "50px",
+                  backgroundColor: "transparent",
+                  border: "1px solid #EFEFEF",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  marginTop: "3px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Readex Pro, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "9px",
+                    color: "#EFEFEF",
+                  }}
+                >
+                  2024
+                </span>
+              </div>
+            </div>
+          </div>
 
-              @keyframes fade-out {
-                from {
-                  opacity: 1;
-                  transform: translateY(0) scale(1);
-                }
-                to {
-                  opacity: 0;
-                  transform: translateY(-20px) scale(0.9);
-                }
-              }
+          <div className="flex flex-col gap-3" style={{ width: "400px" }}>
+            {/* LEADERSHIP ROLE SECTION */}
+            <div
+              className="leadership-container flex flex-col bg-[#2A3A2B]"
+              style={{
+                width: "405px",
+                height: "185px",
+                border: "#EFEFEF solid 1px",
+                borderRadius: "10px",
+                padding: "20px",
+                cursor: "default",
+              }}
+            >
+              <h2
+                className="-mt-2"
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "600",
+                  fontSize: "20px",
+                  color: "#EFEFEF",
+                  marginBottom: "10px",
+                }}
+              >
+                LEADERSHIP ROLE
+              </h2>
 
-              .animate-fade-in {
-                animation: fade-in 0.3s ease-out forwards;
-              }
+              <div className="flex items-start mb-3">
+                <TimelineElement index={0} />
 
-              .animate-fade-out {
-                animation: fade-out 0.3s ease-in forwards;
-              }
-            `}</style>
+                <div className="mt-0.6 flex-1">
+                  <div className="flex justify-between items-start">
+                    <div
+                      className="experience-item flex-1 mr-3"
+                      onMouseEnter={() => setHoveredIndex(0)}
+                      onMouseLeave={() => setHoveredIndex(null)}
+                      style={{ transition: "color 0.3s ease" }}
+                    >
+                      <p
+                        style={{
+                          fontFamily: "Readex Pro, sans-serif",
+                          fontWeight: "500",
+                          fontSize: "15px",
+                          color: "#EFEFEF",
+                          transition: "color 0.3s ease",
+                        }}
+                      >
+                        Public Relations Officer (P.R.O)
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: "Readex Pro, sans-serif",
+                          fontWeight: "300",
+                          fontSize: "9px",
+                          color: "#EFEFEF",
+                          lineHeight: "1.4",
+                          transition: "color 0.3s ease",
+                        }}
+                      >
+                        UPHSD College of Computer Studies Student Council
+                      </p>
+                    </div>
+
+                    <div
+                      className="mt-3"
+                      style={{
+                        width: "73px",
+                        height: "17px",
+                        borderRadius: "50px",
+                        backgroundColor: "transparent",
+                        border: "1px solid #EFEFEF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Readex Pro, sans-serif",
+                          fontWeight: "300",
+                          fontSize: "9px",
+                          color: "#EFEFEF",
+                        }}
+                      >
+                        2023 - 2025
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-start mt-9">
+                    <div
+                      className="experience-item flex-1 mr-3"
+                      onMouseEnter={() => setHoveredIndex(1)}
+                      onMouseLeave={() => setHoveredIndex(null)}
+                      style={{ transition: "color 0.3s ease" }}
+                    >
+                      <p
+                        style={{
+                          fontFamily: "Readex Pro, sans-serif",
+                          fontWeight: "500",
+                          fontSize: "15px",
+                          color: "#EFEFEF",
+                          transition: "color 0.3s ease",
+                        }}
+                      >
+                        Business Manager
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: "Readex Pro, sans-serif",
+                          fontWeight: "300",
+                          fontSize: "9px",
+                          color: "#EFEFEF",
+                          lineHeight: "1.4",
+                          transition: "color 0.3s ease",
+                        }}
+                      >
+                        UPHSD College of Computer Studies Student Council
+                      </p>
+                    </div>
+
+                    <div
+                      className="mt-3"
+                      style={{
+                        width: "73px",
+                        height: "17px",
+                        borderRadius: "50px",
+                        backgroundColor: "transparent",
+                        border: "1px solid #EFEFEF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Readex Pro, sans-serif",
+                          fontWeight: "300",
+                          fontSize: "9px",
+                          color: "#EFEFEF",
+                        }}
+                      >
+                        2022 - 2023
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CONNECT SECTION */}
+            <div
+              className="connect-container flex flex-col bg-[#2A3A2B] relative"
+              style={{
+                width: "405px",
+                height: "115px",
+                border: "#EFEFEF solid 1px",
+                borderRadius: "10px",
+                padding: "20px",
+                cursor: "default",
+              }}
+            >
+              <h2
+                className="-mt-2"
+                style={{
+                  fontFamily: "Readex Pro, sans-serif",
+                  fontWeight: "600",
+                  fontSize: "20px",
+                  color: "#EFEFEF",
+                  marginBottom: "10px",
+                }}
+              >
+                CONNECT
+              </h2>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center relative">
+                  <button
+                    onClick={handlePhoneClick}
+                    className="transition-all duration-300 hover:opacity-80 hover:scale-110"
+                    style={{
+                      background: "none",
+                      border: "none",
+                      padding: 0,
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      src={Phone}
+                      alt="Phone"
+                      style={{
+                        width: "35px",
+                        height: "35px",
+                      }}
+                    />
+                  </button>
+                </div>
+                <div className="flex items-center ml-3">
+                  <a
+                    href="https://www.linkedin.com/in/arragen-basilio-594756383/"
+                    className="transition-all duration-300 hover:opacity-80 hover:scale-110"
+                    target="\_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background: "none",
+                      border: "none",
+                      padding: 0,
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      src={LinkedIn}
+                      alt="LinkedIn"
+                      style={{
+                        width: "35px",
+                        height: "35px",
+                      }}
+                    />
+                  </a>
+                </div>
+                <div className="email flex items-center relative ml-3">
+                  <button
+                    onClick={handleEmailClick}
+                    className="email-button flex items-center transition-all duration-300 hover:opacity-80"
+                    style={{
+                      width: "260px",
+                      height: "40px",
+                      backgroundColor: "#2F4530",
+                      border: "#EFEFEF solid 1px",
+                      borderRadius: "5px",
+                      padding: "5px",
+                      background: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      className="email-icon"
+                      src={Email}
+                      alt="Email"
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        marginRight: "10px",
+                      }}
+                    />
+                    <span
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "400",
+                        fontSize: "14px",
+                        color: "#EFEFEF",
+                      }}
+                    >
+                      arragenbasilio07@gmail.com
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <style jsx>{`
+                @keyframes fade-in {
+                  from {
+                    opacity: 0;
+                    transform: translateY(-20px) scale(0.9);
+                  }
+                  to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                  }
+                }
+
+                @keyframes fade-out {
+                  from {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                  }
+                  to {
+                    opacity: 0;
+                    transform: translateY(-20px) scale(0.9);
+                  }
+                }
+
+                .animate-fade-in {
+                  animation: fade-in 0.3s ease-out forwards;
+                }
+
+                .animate-fade-out {
+                  animation: fade-out 0.3s ease-in forwards;
+                }
+              `}</style>
+            </div>
           </div>
         </div>
-      </div>
-      {/* FOOTER SECTION */}
-      <div
-        className="footer-container flex flex-col items-center mt-17 mb-10"
-        style={{ width: "800px" }}
-      >
+        {/* FOOTER SECTION */}
+        <div
+          className="footer-container flex flex-col items-center mt-17 mb-10"
+          style={{ width: "800px" }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "1px",
+              backgroundColor: "#EFEFEF",
+              marginBottom: "20px",
+              opacity: "0.3",
+            }}
+          ></div>
+
+          <div className="flex items-center">
+            <img
+              src={Copyright}
+              alt="Copyright"
+              style={{ width: "10px", marginRight: "8px" }}
+            />
+            <p
+              style={{
+                fontFamily: "Readex Pro, sans-serif",
+                fontWeight: "300",
+                fontSize: "13px",
+                color: "#EFEFEF",
+              }}
+            >
+              2025 Arragen Basilio. All rights reserved.
+            </p>
+          </div>
+        </div>
+
+        {/* Scroll to Top Button */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-10 right-10 z-50 p-3 bg-[#2F4530] border border-[#EFEFEF] rounded-full transition-all duration-300 hover:bg-[#24FF45] hover:scale-110"
+            style={{
+              width: "50px",
+              height: "50px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            aria-label="Scroll to top"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 20L12 4M12 4L5 11M12 4L19 11"
+                stroke="#EFEFEF"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        )}
+      </section>
+      {/* Snackbar - Moved outside the scrolling container */}
+      {snackbar.show && (
         <div
           style={{
-            width: "100%",
-            height: "1px",
-            backgroundColor: "#EFEFEF",
-            marginBottom: "20px",
-            opacity: "0.3",
-          }}
-        ></div>
-
-        <div className="flex items-center">
-          <img
-            src={Copyright}
-            alt="Copyright"
-            style={{ width: "10px", marginRight: "8px" }}
-          />
-          <p
-            style={{
-              fontFamily: "Readex Pro, sans-serif",
-              fontWeight: "300",
-              fontSize: "13px",
-              color: "#EFEFEF",
-            }}
-          >
-            2025 Arragen Basilio. All rights reserved.
-          </p>
-        </div>
-      </div>
-
-      {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-10 right-10 z-50 p-3 bg-[#2F4530] border border-[#EFEFEF] rounded-full transition-all duration-300 hover:bg-[#24FF45] hover:scale-110"
-          style={{
-            width: "50px",
-            height: "50px",
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+            backgroundColor: "#4A5B4C",
+            color: "white",
+            padding: "12px 24px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
+            zIndex: 10000,
+            animation: snackbar.animating
+              ? "fade-in 0.3s ease-out forwards"
+              : "fade-out 0.3s ease-in forwards",
           }}
-          aria-label="Scroll to top"
         >
           <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+            className="w-5 h-5 mr-2"
             fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
+            style={{ width: "20px", height: "20px" }}
           >
             <path
-              d="M12 20L12 4M12 4L5 11M12 4L19 11"
-              stroke="#EFEFEF"
-              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-            />
+              strokeWidth="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
           </svg>
-        </button>
+          <span>{snackbar.message}</span>
+        </div>
       )}
-    </section>
+    </>
   );
 };
 
