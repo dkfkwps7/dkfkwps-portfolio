@@ -34,6 +34,7 @@ import animate from "/src/assets/Icons/animate.svg";
 
 import Phone from "/src/assets/Icons/Phone.svg";
 import Email from "/src/assets/Icons/Email.svg";
+import LinkedIn from "/src/assets/Icons/LinkedIn.svg";
 
 import Copyright from "/src/assets/Elements/Copyright.svg";
 
@@ -53,6 +54,7 @@ const Hero = () => {
     message: "",
     animating: false,
   });
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     if (!isPaused) {
@@ -166,6 +168,15 @@ const Hero = () => {
   );
 
   useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     if (snackbar.show && !snackbar.animating) {
       const timer = setTimeout(() => {
         setSnackbar({ show: false, message: "", animating: false });
@@ -179,6 +190,13 @@ const Hero = () => {
     setTimeout(() => {
       setSnackbar((prev) => ({ ...prev, animating: false }));
     }, 1700);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const handlePhoneClick = () => {
@@ -236,7 +254,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="about min-h-screen flex flex-col items-center bg-[#222D23]">
+    <section className="about min-h-screen flex flex-col items-center bg-[#222D23] animate-fadeInUp">
       {/* HEADER SECTION */}
       <div
         className="header-container flex items-left justify-left mt-10 mb-10"
@@ -1740,12 +1758,35 @@ const Hero = () => {
                   />
                 </button>
               </div>
-              <div className="email flex items-center relative">
+              <div className="flex items-center ml-3">
+                <a
+                  href="https://www.linkedin.com/in/arragen-basilio-594756383/"
+                  className="transition-all duration-300 hover:opacity-80 hover:scale-110"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    cursor: "pointer",
+                  }}
+                >
+                  <img
+                    src={LinkedIn}
+                    alt="LinkedIn"
+                    style={{
+                      width: "35px",
+                      height: "35px",
+                    }}
+                  />
+                </a>
+              </div>
+              <div className="email flex items-center relative ml-3">
                 <button
                   onClick={handleEmailClick}
                   className="email-button flex items-center transition-all duration-300 hover:opacity-80"
                   style={{
-                    width: "307px",
+                    width: "260px",
                     height: "40px",
                     backgroundColor: "#2F4530",
                     border: "#EFEFEF solid 1px",
@@ -1769,7 +1810,7 @@ const Hero = () => {
                     style={{
                       fontFamily: "Readex Pro, sans-serif",
                       fontWeight: "400",
-                      fontSize: "15px",
+                      fontSize: "14px",
                       color: "#EFEFEF",
                     }}
                   >
@@ -1884,6 +1925,38 @@ const Hero = () => {
           </p>
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-10 right-10 z-50 p-3 bg-[#2F4530] border border-[#EFEFEF] rounded-full transition-all duration-300 hover:bg-[#24FF45] hover:scale-110"
+          style={{
+            width: "50px",
+            height: "50px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          aria-label="Scroll to top"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 20L12 4M12 4L5 11M12 4L19 11"
+              stroke="#EFEFEF"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      )}
     </section>
   );
 };
