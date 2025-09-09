@@ -1895,17 +1895,19 @@ const Hero = () => {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-10 right-10 z-50 p-3 bg-[#2F4530] border border-[#EFEFEF] rounded-full transition-all duration-300 hover:bg-[#24FF45] hover:scale-110"
+            className="fixed bottom-10 right-10 z-50 p-3 bg-[#2F4530] border border-[#EFEFEF] rounded-full transition-all duration-300 hover:bg-[#359d45] hover:scale-110"
             style={{
               width: "50px",
               height: "50px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              cursor: "pointer",
             }}
             aria-label="Scroll to top"
           >
             <svg
+              class="arrow-up"
               width="24"
               height="24"
               viewBox="0 0 24 24"
