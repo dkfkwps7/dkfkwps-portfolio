@@ -55,6 +55,7 @@ const Hero = () => {
     animating: false,
   });
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (!isPaused) {
@@ -184,6 +185,20 @@ const Hero = () => {
       return () => clearTimeout(timer);
     }
   }, [snackbar.show, snackbar.animating]);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Using 768px as mobile breakpoint
+    };
+
+    // Check on mount
+    checkIsMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
 
   const showSnackbar = (message) => {
     setSnackbar({ show: true, message, animating: true });
@@ -1739,8 +1754,8 @@ const Hero = () => {
                 CONNECT
               </h2>
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center relative">
+              <div className="phone flex items-center justify-between">
+                <div className="phone-button flex items-center relative">
                   <button
                     onClick={handlePhoneClick}
                     className="transition-all duration-300 hover:opacity-80 hover:scale-110"
@@ -1761,10 +1776,10 @@ const Hero = () => {
                     />
                   </button>
                 </div>
-                <div className="flex items-center ml-3">
+                <div className="linkedin flex items-center ml-3">
                   <a
                     href="https://www.linkedin.com/in/arragen-basilio-594756383/"
-                    className="transition-all duration-300 hover:opacity-80 hover:scale-110"
+                    className="linkedin-button transition-all duration-300 hover:opacity-80 hover:scale-110"
                     target="\_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -1891,8 +1906,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll to Top Button */}
-        {showScrollTop && (
+        {/* Scroll to Top Button - Desktop Only */}
+        {showScrollTop && !isMobile && (
           <button
             onClick={scrollToTop}
             className="fixed bottom-10 right-10 z-50 p-3 bg-[#2F4530] border border-[#EFEFEF] rounded-full transition-all duration-300 hover:bg-[#359d45] hover:scale-110"

@@ -162,7 +162,7 @@
 }
 @media (max-width: 640px) {
   .leadership-container .mt-9 {
-    margin-top: 1rem !important; /* reduce spacing on mobile */
+    margin-top: 1.3rem !important; /* reduce spacing on mobile */
   }
 }
 @media (max-width: 640px) {
@@ -210,5 +210,89 @@
   /* Social icons centering */
   .social-icons {
     justify-content: center;
+  }
+
+  /* Improved responsive design for connect-container */
+  .connect-container {
+    height: auto !important;
+    padding: 15px !important;
+  }
+
+  .connect-container .phone {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .connect-container > div > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex: none !important;
+    min-width: auto !important;
+  }
+
+  .phone-button,
+  .linkedin {
+    flex: 0 0 auto !important;
+  }
+
+  .email {
+    flex: 1 !important;
+    min-width: 0 !important;
+    max-width: 230px !important;
+  }
+
+  .email-button {
+    font-size: 11px !important;
+    height: 45px !important;
+    width: 100% !important;
+    padding: 8px 10px !important;
+  }
+
+  .email-button img {
+    width: 25px !important;
+    height: 25px !important;
+    flex-shrink: 0 !important;
+    margin-right: 8px !important;
+  }
+
+  .email-button span {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
+  }
+
+  /* Style for individual connect buttons on mobile */
+  .phone-button button,
+  .linkedin-button {
+    width: 45px !important;
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    padding: 0 !important;
+  }
+
+  .phone-button button img {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .linkedin-button img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Connect container title */
+  .connect-container h2 {
+    text-align: left !important;
+    margin-bottom: 15px !important;
+    font-size: 20px !important;
   }
 }
