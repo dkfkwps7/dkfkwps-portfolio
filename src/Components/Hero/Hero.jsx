@@ -1804,7 +1804,7 @@ const Hero = () => {
                     onClick={handleEmailClick}
                     className="email-button flex items-center transition-all duration-300 hover:opacity-80"
                     style={{
-                      width: "260px",
+                      width: "270px",
                       height: "40px",
                       backgroundColor: "#2F4530",
                       border: "#EFEFEF solid 1px",
