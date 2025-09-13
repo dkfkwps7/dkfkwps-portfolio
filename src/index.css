@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+:root {
+  --primary-bg: #222d23; /*var(--primary-bg)*/
+  --secondary-bg: #2a3a2b; /*var(--secondary-bg)*/
+  --tertiary-bg: #2f4530; /*var(--tertiary-bg)*/
+  --white: #efefef; /*button-bg, border, texts, skill-level-bg*/
+  --black: #1e1e1e; /*button-texts*/
+  --green: #24ff45; /*skill-level, timeline-hover*/
+  --snackbar-bg: #4a5b4c; /*snackbar*/
+}

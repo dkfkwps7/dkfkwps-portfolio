@@ -1,0 +1,41 @@
+{
+  "project": {
+    "title": "eXBatch Enrolment System",
+    "status": "Completed",
+    "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL"],
+    "description": "The eXBatch Enrolment System is a comprehensive web application designed to modernize and automate the batch number enrolment process for materials supplied by Toll into the EXACT system. The system eliminates manual processes, reduces errors, and provides a structured workflow for submitting, reviewing, and approving batch enrolment requests across different organizational departments.",
+    "features": {
+      "userManagement": {
+        "title": "User Management",
+        "items": [
+          "Multi-role Support: Admin, Approver, and Requestor roles with distinct privileges",
+          "User Account Management: Complete user lifecycle including activation/deactivation",
+          "Department Association: Users linked to specific departments for workflow control"
+        ]
+      },
+      "coreFunctionality": {
+        "title": "Core Functionality",
+        "items": [
+          "Batch Number Management: Complete lifecycle management of batch enrolments from submission to approval",
+          "Real-time Integration: Direct synchronization with EXACT system for data validation and record creation",
+          "Duplicate Prevention: Automated validation to prevent duplicate entries in the EXACT system"
+        ]
+      },
+      "reportingAnalytics": {
+        "title": "Reporting & Analytics",
+        "items": [
+          "Dashboard Analytics: Real-time statistics and activity monitoring",
+          "Request Tracking: Comprehensive tracking of request status and history",
+          "Export Capabilities: PDF export functionality with filtering options",
+          "Activity Logging: Detailed audit trail of all system activities"
+        ]
+      }
+    },
+    "buttons": {
+      "back": "Back",
+      "viewManual": "View User Manual",
+      "downloadManual": "Download Manual",
+      "userManual": "User Manual"
+    }
+  }
+}

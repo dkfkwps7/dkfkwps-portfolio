@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserManual from "/src/assets/eXBatch_Enrolment_System-UserManual.pdf";
-import "./Project.css"; // Import the CSS file
+import "./Project.css";
+import projectContent from "./projectContent.json";
 
 const ScrollToTop = () => {
   const { pathname } = window.location;
@@ -25,31 +26,28 @@ const Project = () => {
 
   const toggleManual = () => {
     if (!showManual) {
-      // Opening the manual
       setShowManual(true);
       setIsManualAnimating(true);
     } else {
-      // Closing the manual - add a slight delay for the animation
       setIsManualAnimating(false);
       setTimeout(() => {
         setShowManual(false);
-      }, 300); // Match this with the CSS transition duration
+      }, 300);
     }
   };
 
-  // Check if device is mobile
+  const { title, status, technologies, description, features, buttons } =
+    projectContent.project;
+
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth <= 640);
     };
 
-    // Initial check
     checkIsMobile();
 
-    // Add event listener for window resize
     window.addEventListener("resize", checkIsMobile);
 
-    // Cleanup
     return () => {
       window.removeEventListener("resize", checkIsMobile);
     };
@@ -63,7 +61,6 @@ const Project = () => {
         manualContainer &&
         !manualContainer.contains(event.target)
       ) {
-        // Check if the click was not on the toggle button
         const toggleButton = document.querySelector(".toggle-manual-btn");
         if (toggleButton && !toggleButton.contains(event.target)) {
           toggleManual();
@@ -79,7 +76,6 @@ const Project = () => {
 
   return (
     <>
-      {/* Background overlay with blur effect */}
       <div className={`overlay ${showManual ? "show" : ""}`}></div>
 
       <section
@@ -88,7 +84,6 @@ const Project = () => {
         }`}
       >
         <div className="max-w-4xl w-full">
-          {/* Back Button */}
           <button
             onClick={handleBack}
             className="flex items-center pt-10 mb-8 transition-all duration-300 hover:opacity-80 hover:scale-105"
@@ -119,12 +114,11 @@ const Project = () => {
                 color: "#EFEFEF",
               }}
             >
-              Back
+              {buttons.back}
             </span>
           </button>
 
           <div className="project-content p-8 -mt-10">
-            {/* Title and Manual Button */}
             <div className="flex justify-between items-center mb-6">
               <h1
                 style={{
@@ -134,11 +128,10 @@ const Project = () => {
                   color: "#EFEFEF",
                 }}
               >
-                eXBatch Enrolment System
+                {title}
               </h1>
 
               <div className="flex items-center gap-2">
-                {/* View Manual button (desktop only) */}
                 {!isMobile && (
                   <button
                     onClick={toggleManual}
@@ -166,11 +159,10 @@ const Project = () => {
                         fill="#EFEFEF"
                       />
                     </svg>
-                    View User Manual
+                    {buttons.viewManual}
                   </button>
                 )}
 
-                {/* Download button (mobile only) */}
                 {isMobile && (
                   <a
                     href={UserManual}
@@ -199,13 +191,12 @@ const Project = () => {
                         fill="#24FF45"
                       />
                     </svg>
-                    Download Manual
+                    {buttons.downloadManual}
                   </a>
                 )}
               </div>
             </div>
 
-            {/* PDF Manual Container (desktop only) */}
             {showManual && !isMobile && (
               <div
                 className={`manual-container ${
@@ -221,7 +212,7 @@ const Project = () => {
                       color: "#EFEFEF",
                     }}
                   >
-                    User Manual
+                    {buttons.userManual}
                   </h2>
                   <button
                     onClick={toggleManual}
@@ -262,31 +253,29 @@ const Project = () => {
                     color: "#24FF45",
                   }}
                 >
-                  Completed
+                  {status}
                 </span>
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {["HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL"].map(
-                  (tech) => (
-                    <span
-                      key={tech}
-                      className="tech-tag"
-                      style={{
-                        fontFamily: "Readex Pro, sans-serif",
-                        fontWeight: "300",
-                        fontSize: "13px",
-                        color: "#EFEFEF",
-                        border: "1px solid #EFEFEF",
-                        borderRadius: "3px",
-                        padding: "2px 8px",
-                        display: "inline-block",
-                      }}
-                    >
-                      {tech}
-                    </span>
-                  )
-                )}
+                {technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="tech-tag"
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "13px",
+                      color: "#EFEFEF",
+                      border: "1px solid #EFEFEF",
+                      borderRadius: "3px",
+                      padding: "2px 8px",
+                      display: "inline-block",
+                    }}
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -312,13 +301,7 @@ const Project = () => {
                   textAlign: "justify",
                 }}
               >
-                The eXBatch Enrolment System is a comprehensive web application
-                designed to modernize and automate the batch number enrolment
-                process for materials supplied by Toll into the EXACT system.
-                The system eliminates manual processes, reduces errors, and
-                provides a structured workflow for submitting, reviewing, and
-                approving batch enrolment requests across different
-                organizational departments.
+                {description}
               </p>
             </div>
 
@@ -353,7 +336,7 @@ const Project = () => {
                     marginBottom: "10px",
                   }}
                 >
-                  User Management
+                  {features.userManagement.title}
                 </h2>
                 <ul
                   className="list-disc ml-10"
@@ -362,18 +345,9 @@ const Project = () => {
                     fontWeight: "200",
                   }}
                 >
-                  <li>
-                    Multi-role Support: Admin, Approver, and Requestor roles
-                    with distinct privileges
-                  </li>
-                  <li>
-                    User Account Management: Complete user lifecycle including
-                    activation/deactivation
-                  </li>
-                  <li>
-                    Department Association: Users linked to specific departments
-                    for workflow control
-                  </li>
+                  <li>{features.userManagement.items[0]}</li>
+                  <li>{features.userManagement.items[1]}</li>
+                  <li>{features.userManagement.items[2]}</li>
                 </ul>
                 <h2
                   style={{
@@ -384,7 +358,7 @@ const Project = () => {
                     marginBottom: "10px",
                   }}
                 >
-                  Core Functionality
+                  {features.coreFunctionality.title}
                 </h2>
                 <ul
                   className="list-disc ml-10"
@@ -393,18 +367,9 @@ const Project = () => {
                     fontWeight: "200",
                   }}
                 >
-                  <li>
-                    Batch Number Management: Complete lifecycle management of
-                    batch enrolments from submission to approval
-                  </li>
-                  <li>
-                    Real-time Integration: Direct synchronization with EXACT
-                    system for data validation and record creation
-                  </li>
-                  <li>
-                    Duplicate Prevention: Automated validation to prevent
-                    duplicate entries in the EXACT system
-                  </li>
+                  <li>{features.coreFunctionality.items[0]}</li>
+                  <li>{features.coreFunctionality.items[1]}</li>
+                  <li>{features.coreFunctionality.items[2]}</li>
                 </ul>
 
                 <h2
@@ -416,7 +381,7 @@ const Project = () => {
                     marginBottom: "10px",
                   }}
                 >
-                  Reporting & Analytics
+                  {features.reportingAnalytics.title}
                 </h2>
                 <ul
                   className="list-disc ml-10"
@@ -425,22 +390,10 @@ const Project = () => {
                     fontWeight: "200",
                   }}
                 >
-                  <li>
-                    Dashboard Analytics: Real-time statistics and activity
-                    monitoring
-                  </li>
-                  <li>
-                    Request Tracking: Comprehensive tracking of request status
-                    and history
-                  </li>
-                  <li>
-                    Export Capabilities: PDF export functionality with filtering
-                    options
-                  </li>
-                  <li>
-                    Activity Logging: Detailed audit trail of all system
-                    activities
-                  </li>
+                  <li>{features.reportingAnalytics.items[0]}</li>
+                  <li>{features.reportingAnalytics.items[1]}</li>
+                  <li>{features.reportingAnalytics.items[2]}</li>
+                  <li>{features.reportingAnalytics.items[3]}</li>
                 </ul>
               </ul>
             </div>

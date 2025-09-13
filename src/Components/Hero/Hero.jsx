@@ -272,7 +272,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="about min-h-screen flex flex-col items-center bg-[#222D23] animate-fadeInUp">
+      <section className="about min-h-screen flex flex-col items-center bg-[var(--primary-bg)] animate-fadeInUp">
         {/* HEADER SECTION */}
         <div
           className="header-container flex items-left justify-left mt-10 mb-10"
@@ -299,7 +299,7 @@ const Hero = () => {
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "bold",
                 fontSize: "35px",
-                color: "#EFEFEF",
+                color: "var(--white)",
               }}
             >
               {hero.name}
@@ -315,7 +315,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "light",
                   fontSize: "13px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                 }}
               >
                 {hero.education}
@@ -332,7 +332,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "light",
                   fontSize: "13px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                 }}
               >
                 {hero.location}
@@ -348,11 +348,11 @@ const Hero = () => {
                 style={{
                   width: "130px",
                   height: "33px",
-                  backgroundColor: "#EFEFEF",
+                  backgroundColor: "var(--white)",
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "Bold",
                   fontSize: "13px",
-                  color: "#1E1E1E",
+                  color: "var(--black)",
                   borderRadius: "4px",
                   border: "none",
                   cursor: "pointer",
@@ -401,11 +401,11 @@ const Hero = () => {
 
         {/* ABOUT SECTION */}
         <div
-          className="about-container flex flex-col bg-[#2A3A2B]"
+          className="about-container flex flex-col bg-[var(--secondary-bg)]"
           style={{
             width: "800px",
             height: "315px",
-            border: "#EFEFEF solid 1px",
+            border: "var(--white) solid 1px",
             borderRadius: "10px",
             padding: "20px",
             cursor: "default",
@@ -417,7 +417,7 @@ const Hero = () => {
               fontFamily: "Readex Pro, sans-serif",
               fontWeight: "600",
               fontSize: "20px",
-              color: "#EFEFEF",
+              color: "var(--white)",
               marginBottom: "5px",
             }}
           >
@@ -429,7 +429,7 @@ const Hero = () => {
               fontFamily: "Readex Pro, sans-serif",
               fontWeight: "300",
               fontSize: "13.5px",
-              color: "#EFEFEF",
+              color: "var(--white)",
               lineHeight: "1.4",
               textAlign: "justify",
             }}
@@ -448,11 +448,11 @@ const Hero = () => {
         {/* EXPERIENCE CONTAINER */}
         <div className="flex mt-3 gap-3" style={{ width: "800px" }}>
           <div
-            className="experience-container flex flex-col bg-[#2A3A2B]"
+            className="experience-container flex flex-col bg-[var(--secondary-bg)]"
             style={{
               width: "390px",
               height: "180px",
-              border: "#EFEFEF solid 1px",
+              border: "var(--white) solid 1px",
               borderRadius: "10px",
               padding: "20px",
               cursor: "default",
@@ -464,7 +464,7 @@ const Hero = () => {
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "600",
                 fontSize: "20px",
-                color: "#EFEFEF",
+                color: "var(--white)",
                 marginBottom: "10px",
               }}
             >
@@ -487,7 +487,7 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "500",
                         fontSize: "15px",
-                        color: "#EFEFEF",
+                        color: "var(--white)",
                         transition: "color 0.3s ease",
                       }}
                     >
@@ -498,7 +498,7 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "300",
                         fontSize: "11px",
-                        color: "#EFEFEF",
+                        color: "var(--white)",
                         lineHeight: "1.4",
                         transition: "color 0.3s ease",
                       }}
@@ -514,7 +514,7 @@ const Hero = () => {
                       height: "17px",
                       borderRadius: "50px",
                       backgroundColor: "transparent",
-                      border: "1px solid #EFEFEF",
+                      border: "1px solid var(--white)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -526,7 +526,7 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "300",
                         fontSize: "9px",
-                        color: "#EFEFEF",
+                        color: "var(--white)",
                       }}
                     >
                       {hero.experience.items[0].year}
@@ -546,7 +546,7 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "500",
                         fontSize: "15px",
-                        color: "#EFEFEF",
+                        color: "var(--white)",
                         transition: "color 0.3s ease",
                       }}
                     >
@@ -557,7 +557,7 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "300",
                         fontSize: "11px",
-                        color: "#EFEFEF",
+                        color: "var(--white)",
                         lineHeight: "1.4",
                         transition: "color 0.3s ease",
                       }}
@@ -573,7 +573,7 @@ const Hero = () => {
                       height: "17px",
                       borderRadius: "50px",
                       backgroundColor: "transparent",
-                      border: "1px solid #EFEFEF",
+                      border: "1px solid var(--white)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -585,7 +585,7 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "300",
                         fontSize: "9px",
-                        color: "#EFEFEF",
+                        color: "var(--white)",
                       }}
                     >
                       {hero.experience.items[1].year}
@@ -598,11 +598,11 @@ const Hero = () => {
 
           {/* PROJECT SECTION */}
           <div
-            className="project-container flex flex-col bg-[#2A3A2B] mb-3"
+            className="project-container flex flex-col bg-[var(--secondary-bg)] mb-3"
             style={{
               width: "410px",
               height: "180px",
-              border: "#EFEFEF solid 1px",
+              border: "var(--white) solid 1px",
               borderRadius: "10px",
               padding: "20px",
             }}
@@ -613,7 +613,7 @@ const Hero = () => {
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "600",
                 fontSize: "20px",
-                color: "#EFEFEF",
+                color: "var(--white)",
                 marginBottom: "10px",
                 cursor: "default",
               }}
@@ -628,7 +628,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "500",
                     fontSize: "15px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                     cursor: "default",
                   }}
                 >
@@ -651,7 +651,7 @@ const Hero = () => {
                       fontFamily: "Readex Pro, sans-serif",
                       fontWeight: "300",
                       fontSize: "12px",
-                      color: "#EFEFEF",
+                      color: "var(--white)",
                       marginRight: "4px",
                     }}
                   >
@@ -678,7 +678,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "300",
                   fontSize: "12px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                   lineHeight: "1.3",
                   textAlign: "justify",
                   cursor: "default",
@@ -692,11 +692,11 @@ const Hero = () => {
 
         {/* TECH STACK SECTION */}
         <div
-          className="tech-stack-container flex flex-col bg-[#2A3A2B] mb-3"
+          className="tech-stack-container flex flex-col bg-[var(--secondary-bg)] mb-3"
           style={{
             width: "800px",
             height: "420px",
-            border: "#EFEFEF solid 1px",
+            border: "var(--white) solid 1px",
             borderRadius: "10px",
             padding: "20px",
             paddingBottom: "10px",
@@ -708,7 +708,7 @@ const Hero = () => {
               fontFamily: "Readex Pro, sans-serif",
               fontWeight: "600",
               fontSize: "20px",
-              color: "#EFEFEF",
+              color: "var(--white)",
               marginBottom: "15px",
             }}
           >
@@ -818,9 +818,9 @@ const Hero = () => {
               style={{
                 width: "175px",
                 height: "250px",
-                backgroundColor: "#2F4530",
+                backgroundColor: "var(--tertiary-bg",
                 borderRadius: "10px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
                 padding: "15px",
                 marginBottom: "15px",
               }}
@@ -830,7 +830,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "500",
                   fontSize: "15px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                   textAlign: "center",
                   marginBottom: "15px",
                   lineHeight: "1.2",
@@ -848,8 +848,8 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "300",
                         fontSize: "13px",
-                        color: "#EFEFEF",
-                        border: "1px solid #EFEFEF",
+                        color: "var(--white)",
+                        border: "1px solid var(--white)",
                         borderRadius: "3px",
                         padding: "2px 8px",
                         display: "inline-block",
@@ -868,9 +868,9 @@ const Hero = () => {
               style={{
                 width: "210px",
                 height: "250px",
-                backgroundColor: "#2F4530",
+                backgroundColor: "var(--tertiary-bg)",
                 borderRadius: "10px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
                 padding: "15px",
                 marginBottom: "15px",
               }}
@@ -880,7 +880,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "500",
                   fontSize: "16px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                   textAlign: "center",
                   marginBottom: "10px",
                 }}
@@ -897,7 +897,7 @@ const Hero = () => {
                       fontFamily: "Readex Pro, sans-serif",
                       fontWeight: "400",
                       fontSize: "13px",
-                      color: "#EFEFEF",
+                      color: "var(--white)",
                     }}
                   >
                     {skill.name}
@@ -906,7 +906,7 @@ const Hero = () => {
                     style={{
                       width: "80px",
                       height: "6px",
-                      backgroundColor: "#EFEFEF",
+                      backgroundColor: "var(--white)",
                       borderRadius: "3px",
                       position: "relative",
                     }}
@@ -915,7 +915,7 @@ const Hero = () => {
                       style={{
                         width: `${skill.level}px`,
                         height: "6px",
-                        backgroundColor: "#24FF45",
+                        backgroundColor: "var(--green)",
                         borderRadius: "3px",
                         position: "absolute",
                       }}
@@ -932,8 +932,8 @@ const Hero = () => {
                       fontFamily: "Readex Pro, sans-serif",
                       fontWeight: "300",
                       fontSize: "12px",
-                      color: "#EFEFEF",
-                      border: "1px solid #EFEFEF",
+                      color: "var(--white)",
+                      border: "1px solid var(--white)",
                       borderRadius: "3px",
                       padding: "2px 8px",
                       display: "inline-block",
@@ -951,9 +951,9 @@ const Hero = () => {
               style={{
                 width: "190px",
                 height: "250px",
-                backgroundColor: "#2F4530",
+                backgroundColor: "var(--tertiary-bg)",
                 borderRadius: "10px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
                 padding: "15px",
                 marginBottom: "15px",
               }}
@@ -963,7 +963,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "500",
                   fontSize: "16px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                   textAlign: "center",
                   marginBottom: "10px",
                 }}
@@ -981,7 +981,7 @@ const Hero = () => {
                       fontFamily: "Readex Pro, sans-serif",
                       fontWeight: "400",
                       fontSize: "13px",
-                      color: "#EFEFEF",
+                      color: "var(--white)",
                     }}
                   >
                     {skill.name}
@@ -990,7 +990,7 @@ const Hero = () => {
                     style={{
                       width: "80px",
                       height: "6px",
-                      backgroundColor: "#EFEFEF",
+                      backgroundColor: "var(--white)",
                       borderRadius: "3px",
                       position: "relative",
                     }}
@@ -999,7 +999,7 @@ const Hero = () => {
                       style={{
                         width: `${skill.level}px`,
                         height: "6px",
-                        backgroundColor: "#24FF45",
+                        backgroundColor: "var(--green)",
                         borderRadius: "3px",
                         position: "absolute",
                       }}
@@ -1017,8 +1017,8 @@ const Hero = () => {
                       fontFamily: "Readex Pro, sans-serif",
                       fontWeight: "300",
                       fontSize: "12px",
-                      color: "#EFEFEF",
-                      border: "1px solid #EFEFEF",
+                      color: "var(--white)",
+                      border: "1px solid var(--white)",
                       borderRadius: "3px",
                       padding: "2px 8px",
                       display: "inline-block",
@@ -1036,9 +1036,9 @@ const Hero = () => {
               style={{
                 width: "160px",
                 height: "250px",
-                backgroundColor: "#2F4530",
+                backgroundColor: "var(--tertiary-bg)",
                 borderRadius: "10px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
                 padding: "15px",
                 marginBottom: "15px",
               }}
@@ -1048,7 +1048,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "500",
                   fontSize: "16px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                   textAlign: "center",
                   marginBottom: "10px",
                 }}
@@ -1065,8 +1065,8 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "300",
                         fontSize: "12px",
-                        color: "#EFEFEF",
-                        border: "1px solid #EFEFEF",
+                        color: "var(--white)",
+                        border: "1px solid var(--white)",
                         borderRadius: "3px",
                         padding: "2px 8px",
                         display: "inline-block",
@@ -1084,11 +1084,11 @@ const Hero = () => {
         <div className="flex gap-3" style={{ width: "800px" }}>
           {/* ACHIEVEMENTS SECTION */}
           <div
-            className="achievements-container flex flex-col bg-[#2A3A2B]"
+            className="achievements-container flex flex-col bg-[var(--secondary-bg)]"
             style={{
               width: "385px",
               height: "310px",
-              border: "#EFEFEF solid 1px",
+              border: "var(--white) solid 1px",
               borderRadius: "10px",
               padding: "20px",
               cursor: "default",
@@ -1100,7 +1100,7 @@ const Hero = () => {
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "600",
                 fontSize: "20px",
-                color: "#EFEFEF",
+                color: "var(--white) ",
                 marginBottom: "10px",
               }}
             >
@@ -1115,9 +1115,9 @@ const Hero = () => {
                 height: "80px",
                 padding: "10px",
                 marginBottom: "5px",
-                backgroundColor: "#2F4530",
+                backgroundColor: "var(--tertiary-bg)",
                 borderRadius: "5px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
               }}
             >
               <div className="flex flex-col">
@@ -1127,7 +1127,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "500",
                     fontSize: "15px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                     marginBottom: "5px",
                     textAlign: "left",
                   }}
@@ -1139,7 +1139,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "300",
                     fontSize: "9px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                     lineHeight: "1.5",
                     textAlign: "left",
                     marginBottom: "5px",
@@ -1154,7 +1154,7 @@ const Hero = () => {
                   height: "17px",
                   borderRadius: "50px",
                   backgroundColor: "transparent",
-                  border: "1px solid #EFEFEF",
+                  border: "1px solid var(--white)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -1167,7 +1167,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "300",
                     fontSize: "9px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                   }}
                 >
                   {hero.achievements.items[0].year}
@@ -1183,9 +1183,9 @@ const Hero = () => {
                 height: "70px",
                 padding: "10px",
                 marginBottom: "5px",
-                backgroundColor: "#2F4530",
+                backgroundColor: "var(--tertiary-bg)",
                 borderRadius: "5px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
               }}
             >
               <div className="flex flex-col">
@@ -1194,7 +1194,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "500",
                     fontSize: "15px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                     marginBottom: "5px",
                     textAlign: "left",
                   }}
@@ -1206,7 +1206,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "300",
                     fontSize: "12px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                     lineHeight: "1.2",
                     textAlign: "left",
                     marginBottom: "5px",
@@ -1221,7 +1221,7 @@ const Hero = () => {
                   height: "17px",
                   borderRadius: "50px",
                   backgroundColor: "transparent",
-                  border: "1px solid #EFEFEF",
+                  border: "1px solid var(--white)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -1234,7 +1234,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "300",
                     fontSize: "9px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                   }}
                 >
                   {hero.achievements.items[1].year}
@@ -1250,9 +1250,9 @@ const Hero = () => {
                 height: "80px",
                 padding: "10px",
                 marginBottom: "5px",
-                backgroundColor: "#2F4530",
+                backgroundColor: "var(--tertiary-bg)",
                 borderRadius: "5px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
               }}
             >
               <div className="flex flex-col">
@@ -1261,7 +1261,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "500",
                     fontSize: "15px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                     marginBottom: "5px",
                     textAlign: "left",
                   }}
@@ -1273,7 +1273,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "300",
                     fontSize: "9px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                     lineHeight: "1.2",
                     textAlign: "left",
                     marginBottom: "5px",
@@ -1288,7 +1288,7 @@ const Hero = () => {
                   height: "17px",
                   borderRadius: "50px",
                   backgroundColor: "transparent",
-                  border: "1px solid #EFEFEF",
+                  border: "1px solid var(--white)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -1301,7 +1301,7 @@ const Hero = () => {
                     fontFamily: "Readex Pro, sans-serif",
                     fontWeight: "300",
                     fontSize: "9px",
-                    color: "#EFEFEF",
+                    color: "var(--white)",
                   }}
                 >
                   {hero.achievements.items[2].year}
@@ -1313,11 +1313,11 @@ const Hero = () => {
           {/* LEADERSHIP ROLE SECTION */}
           <div className="flex flex-col gap-3" style={{ width: "400px" }}>
             <div
-              className="leadership-container flex flex-col bg-[#2A3A2B]"
+              className="leadership-container flex flex-col bg-[var(--secondary-bg)]"
               style={{
                 width: "405px",
                 height: "185px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
                 borderRadius: "10px",
                 padding: "20px",
                 cursor: "default",
@@ -1329,7 +1329,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "600",
                   fontSize: "20px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                   marginBottom: "10px",
                 }}
               >
@@ -1352,7 +1352,7 @@ const Hero = () => {
                           fontFamily: "Readex Pro, sans-serif",
                           fontWeight: "500",
                           fontSize: "15px",
-                          color: "#EFEFEF",
+                          color: "var(--white)",
                           transition: "color 0.3s ease",
                         }}
                       >
@@ -1363,7 +1363,7 @@ const Hero = () => {
                           fontFamily: "Readex Pro, sans-serif",
                           fontWeight: "300",
                           fontSize: "9px",
-                          color: "#EFEFEF",
+                          color: "var(--white)",
                           lineHeight: "1.4",
                           transition: "color 0.3s ease",
                         }}
@@ -1379,7 +1379,7 @@ const Hero = () => {
                         height: "17px",
                         borderRadius: "50px",
                         backgroundColor: "transparent",
-                        border: "1px solid #EFEFEF",
+                        border: "1px solid var(--white)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -1391,7 +1391,7 @@ const Hero = () => {
                           fontFamily: "Readex Pro, sans-serif",
                           fontWeight: "300",
                           fontSize: "9px",
-                          color: "#EFEFEF",
+                          color: "var(--white)",
                         }}
                       >
                         {hero.leadership.items[0].period}
@@ -1411,7 +1411,7 @@ const Hero = () => {
                           fontFamily: "Readex Pro, sans-serif",
                           fontWeight: "500",
                           fontSize: "15px",
-                          color: "#EFEFEF",
+                          color: "var(--white)",
                           transition: "color 0.3s ease",
                         }}
                       >
@@ -1422,7 +1422,7 @@ const Hero = () => {
                           fontFamily: "Readex Pro, sans-serif",
                           fontWeight: "300",
                           fontSize: "9px",
-                          color: "#EFEFEF",
+                          color: "var(--white)",
                           lineHeight: "1.4",
                           transition: "color 0.3s ease",
                         }}
@@ -1438,7 +1438,7 @@ const Hero = () => {
                         height: "17px",
                         borderRadius: "50px",
                         backgroundColor: "transparent",
-                        border: "1px solid #EFEFEF",
+                        border: "1px solid var(--white)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -1450,7 +1450,7 @@ const Hero = () => {
                           fontFamily: "Readex Pro, sans-serif",
                           fontWeight: "300",
                           fontSize: "9px",
-                          color: "#EFEFEF",
+                          color: "var(--white)",
                         }}
                       >
                         {hero.leadership.items[1].period}
@@ -1463,11 +1463,11 @@ const Hero = () => {
 
             {/* CONNECT SECTION */}
             <div
-              className="connect-container flex flex-col bg-[#2A3A2B] relative"
+              className="connect-container flex flex-col bg-[var(--secondary-bg)] relative"
               style={{
                 width: "405px",
                 height: "113px",
-                border: "#EFEFEF solid 1px",
+                border: "var(--white) solid 1px",
                 borderRadius: "10px",
                 padding: "20px",
                 cursor: "default",
@@ -1479,7 +1479,7 @@ const Hero = () => {
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "600",
                   fontSize: "20px",
-                  color: "#EFEFEF",
+                  color: "var(--white)",
                   marginBottom: "10px",
                 }}
               >
@@ -1538,8 +1538,8 @@ const Hero = () => {
                     style={{
                       width: "270px",
                       height: "40px",
-                      backgroundColor: "#2F4530",
-                      border: "#EFEFEF solid 1px",
+                      backgroundColor: "var(--tertiary-bg)",
+                      border: "var(--white) solid 1px",
                       borderRadius: "5px",
                       padding: "5px",
                       background: "none",
@@ -1561,7 +1561,7 @@ const Hero = () => {
                         fontFamily: "Readex Pro, sans-serif",
                         fontWeight: "400",
                         fontSize: "14px",
-                        color: "#EFEFEF",
+                        color: "var(--white)",
                       }}
                     >
                       {hero.connect.email}
@@ -1613,7 +1613,7 @@ const Hero = () => {
             style={{
               width: "100%",
               height: "1px",
-              backgroundColor: "#EFEFEF",
+              backgroundColor: "var(--white)",
               marginBottom: "20px",
               opacity: "0.3",
             }}
@@ -1630,7 +1630,7 @@ const Hero = () => {
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "300",
                 fontSize: "13px",
-                color: "#EFEFEF",
+                color: "var(--white)",
               }}
             >
               {hero.footer.copyright}
@@ -1642,7 +1642,7 @@ const Hero = () => {
         {showScrollTop && !isMobile && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-10 right-10 z-50 p-3 bg-[#2F4530] border border-[#EFEFEF] rounded-full transition-all duration-300 hover:bg-[#359d45] hover:scale-110"
+            className="fixed bottom-10 right-10 z-50 p-3 bg-[var(--tertiary-bg)] border border-[var(--white)] rounded-full transition-all duration-300 hover:bg-[#359d45] hover:scale-110"
             style={{
               width: "50px",
               height: "50px",
@@ -1679,8 +1679,8 @@ const Hero = () => {
             position: "fixed",
             top: "20px",
             right: "20px",
-            backgroundColor: "#4A5B4C",
-            color: "white",
+            backgroundColor: "var(--snackbar-bg)",
+            color: "var(--white)",
             padding: "12px 24px",
             borderRadius: "8px",
             boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
