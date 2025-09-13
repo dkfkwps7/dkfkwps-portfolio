@@ -1,0 +1,127 @@
+{
+  "hero": {
+    "name": "Arragen A. Basilio",
+    "education": "Bachelor of Science in Information Technology",
+    "location": "Calamba City, Laguna",
+    "about": {
+      "title": "ABOUT",
+      "content": [
+        "As a recent Bachelor of Science in Information Technology graduate, I'm passionate about transforming ideas into digital solutions through code. My journey in tech is just beginning, with a strong focus on web development as my foundation. I'm eager to collaborate with and learn from seasoned professionals in the tech industry, believing that growth comes through mentorship and real-world experience.",
+        "My curiosity extends beyond web technologies—I'm committed to expanding my expertise across multiple programming languages, frameworks, and APIs. While web development is my current focus, I'm equally excited about exploring software development, mobile application creation, and other emerging technologies. I believe in continuous learning and see every project as an opportunity to grow, adapt, and contribute meaningfully to the ever-evolving tech landscape.",
+        "I'm ready to bring fresh perspectives, dedication, and an insatiable appetite for learning to any development team or project."
+      ]
+    },
+    "experience": {
+      "title": "EXPERIENCE",
+      "items": [
+        {
+          "title": "IT Intern",
+          "company": "Am-Europharma Corporation",
+          "year": "2025"
+        },
+        {
+          "title": "BS Information Technology",
+          "company": "University of Perpetual Help System DALTA",
+          "year": "2025"
+        }
+      ]
+    },
+    "project": {
+      "title": "PROJECT",
+      "items": [
+        {
+          "name": "eXBatch Enrolment System",
+          "description": "A web-based application designed to streamline the enrolment of batch numbers for Toll-supplied materials into the EXACT system. Offering role-based access for easy submission, approval, and tracking."
+        }
+      ]
+    },
+    "techStack": {
+      "title": "TECH STACK",
+      "categories": {
+        "developmentTools": {
+          "title": "Development Tools",
+          "items": [
+            "VS Code",
+            "XAMPP",
+            "Windsurf",
+            "Cursor",
+            "Visual Studio",
+            "Git",
+            "Pycharm",
+            "Github"
+          ]
+        },
+        "frontend": {
+          "title": "Frontend",
+          "skills": [
+            { "name": "HTML", "level": 60 },
+            { "name": "CSS", "level": 60 },
+            { "name": "JavaScript", "level": 50 },
+            { "name": "Tailwind CSS", "level": 55 },
+            { "name": "React.js", "level": 40 }
+          ],
+          "tags": ["Bootstrap", "Material UI", "Vite", "HeroUI"]
+        },
+        "backend": {
+          "title": "Backend",
+          "skills": [
+            { "name": "PHP", "level": 55 },
+            { "name": "Python", "level": 45 },
+            { "name": "Java", "level": 40 },
+            { "name": "C++", "level": 45 },
+            { "name": "VB.Net", "level": 30 }
+          ],
+          "tags": ["MySQL", "C#"]
+        },
+        "designTools": {
+          "title": "Design Tools",
+          "items": ["Canva", "Figma", "Adobe Photoshop", "Adobe Animate"]
+        }
+      }
+    },
+    "achievements": {
+      "title": "ACHIEVEMENTS",
+      "items": [
+        {
+          "title": "Outstanding in Practicum",
+          "description": "Recognized for outstanding performance and professionalism during On-the-Job Training at Am-Europharma Corporation.",
+          "year": "2025"
+        },
+        {
+          "title": "Dean's Lister",
+          "description": "Achieved a General Weighted Average of 1.55",
+          "year": "2024"
+        },
+        {
+          "title": "Top Performing Student",
+          "description": "Recognized for outstanding academic performance in the College of Computer Studies",
+          "year": "2024"
+        }
+      ]
+    },
+    "leadership": {
+      "title": "LEADERSHIP ROLE",
+      "items": [
+        {
+          "title": "Public Relations Officer (P.R.O)",
+          "organization": "UPHSD College of Computer Studies Student Council",
+          "period": "2023 - 2025"
+        },
+        {
+          "title": "Business Manager",
+          "organization": "UPHSD College of Computer Studies Student Council",
+          "period": "2022 - 2023"
+        }
+      ]
+    },
+    "connect": {
+      "title": "CONNECT",
+      "email": "arragenbasilio07@gmail.com",
+      "phone": "+639095358493",
+      "discord": "tomataur."
+    },
+    "footer": {
+      "copyright": "2025 Arragen Basilio. All rights reserved."
+    }
+  }
+}

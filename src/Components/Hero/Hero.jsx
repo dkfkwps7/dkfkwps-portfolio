@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Hero.css";
+import content from "./content.json";
 import Profile from "/src/assets/Profile.svg";
 import TempProfile from "/src/assets/TempProfile.svg";
 import Education from "/src/assets/Icons/Education.svg";
@@ -39,6 +40,7 @@ import LinkedIn from "/src/assets/Icons/LinkedIn.svg";
 import Copyright from "/src/assets/Elements/Copyright.svg";
 
 const Hero = () => {
+  const { hero } = content;
   const [copied, setCopied] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isLogoLoopHovered, setIsLogoLoopHovered] = useState(false);
@@ -46,7 +48,7 @@ const Hero = () => {
   const [isPaused, setIsPaused] = useState(false);
   const animationRef = useRef(null);
   const logoLoopRef = useRef(null);
-  const discordUsername = "tomataur.";
+  const discordUsername = hero.connect.discord;
   const [phoneCopied, setPhoneCopied] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
   const [snackbar, setSnackbar] = useState({
@@ -215,7 +217,7 @@ const Hero = () => {
   };
 
   const handlePhoneClick = () => {
-    const phoneNumber = "+639095358493";
+    const phoneNumber = hero.connect.phone;
     navigator.clipboard
       .writeText(phoneNumber)
       .then(() => {
@@ -230,7 +232,7 @@ const Hero = () => {
   };
 
   const handleEmailClick = () => {
-    const email = "arragenbasilio07@gmail.com";
+    const email = hero.connect.email;
     navigator.clipboard
       .writeText(email)
       .then(() => {
@@ -300,7 +302,7 @@ const Hero = () => {
                 color: "#EFEFEF",
               }}
             >
-              Arragen A. Basilio
+              {hero.name}
             </h1>
             <div className="education flex items-center mb-3">
               <img
@@ -316,7 +318,7 @@ const Hero = () => {
                   color: "#EFEFEF",
                 }}
               >
-                Bachelor of Science in Information Technology
+                {hero.education}
               </p>
             </div>
             <div className="location flex items-center mb-2">
@@ -333,7 +335,7 @@ const Hero = () => {
                   color: "#EFEFEF",
                 }}
               >
-                Calamba City, Laguna
+                {hero.location}
               </p>
             </div>
 
@@ -402,7 +404,7 @@ const Hero = () => {
           className="about-container flex flex-col bg-[#2A3A2B]"
           style={{
             width: "800px",
-            height: "300px",
+            height: "315px",
             border: "#EFEFEF solid 1px",
             borderRadius: "10px",
             padding: "20px",
@@ -419,7 +421,7 @@ const Hero = () => {
               marginBottom: "5px",
             }}
           >
-            ABOUT
+            {hero.about.title}
           </h2>
 
           <p
@@ -428,31 +430,17 @@ const Hero = () => {
               fontWeight: "300",
               fontSize: "13.5px",
               color: "#EFEFEF",
-              lineHeight: "1.3",
+              lineHeight: "1.4",
               textAlign: "justify",
             }}
           >
-            As a recent Bachelor of Science in Information Technology graduate,
-            I'm passionate about transforming ideas into digital solutions
-            through code. My journey in tech is just beginning, with a strong
-            focus on web development as my foundation. I'm eager to collaborate
-            with and learn from seasoned professionals in the tech industry,
-            believing that growth comes through mentorship and real-world
-            experience.
+            {hero.about.content[0]}
             <br />
             <br />
-            My curiosity extends beyond web technologies—I'm committed to
-            expanding my expertise across multiple programming languages,
-            frameworks, and APIs. While web development is my current focus, I'm
-            equally excited about exploring software development, mobile
-            application creation, and other emerging technologies. I believe in
-            continuous learning and see every project as an opportunity to grow,
-            adapt, and contribute meaningfully to the ever-evolving tech
-            landscape.
+            {hero.about.content[1]}
             <br />
             <br />
-            I'm ready to bring fresh perspectives, dedication, and an insatiable
-            appetite for learning to any development team or project.
+            {hero.about.content[2]}
           </p>
         </div>
 
@@ -480,7 +468,7 @@ const Hero = () => {
                 marginBottom: "10px",
               }}
             >
-              EXPERIENCE
+              {hero.experience.title}
             </h2>
 
             <div className="flex items-start mb-3">
@@ -503,7 +491,7 @@ const Hero = () => {
                         transition: "color 0.3s ease",
                       }}
                     >
-                      IT Intern
+                      {hero.experience.items[0].title}
                     </p>
                     <p
                       style={{
@@ -515,7 +503,7 @@ const Hero = () => {
                         transition: "color 0.3s ease",
                       }}
                     >
-                      Am-Europharma Corporation
+                      {hero.experience.items[0].company}
                     </p>
                   </div>
 
@@ -541,7 +529,7 @@ const Hero = () => {
                         color: "#EFEFEF",
                       }}
                     >
-                      2025
+                      {hero.experience.items[0].year}
                     </span>
                   </div>
                 </div>
@@ -562,7 +550,7 @@ const Hero = () => {
                         transition: "color 0.3s ease",
                       }}
                     >
-                      BS Information Technology
+                      {hero.experience.items[1].title}
                     </p>
                     <p
                       style={{
@@ -574,7 +562,7 @@ const Hero = () => {
                         transition: "color 0.3s ease",
                       }}
                     >
-                      University of Perpetual Help System DALTA
+                      {hero.experience.items[1].company}
                     </p>
                   </div>
 
@@ -600,7 +588,7 @@ const Hero = () => {
                         color: "#EFEFEF",
                       }}
                     >
-                      2025
+                      {hero.experience.items[1].year}
                     </span>
                   </div>
                 </div>
@@ -630,7 +618,7 @@ const Hero = () => {
                 cursor: "default",
               }}
             >
-              PROJECT
+              {hero.project.title}
             </h2>
 
             <div className="project-item">
@@ -644,7 +632,7 @@ const Hero = () => {
                     cursor: "default",
                   }}
                 >
-                  eXBatch Enrolment System
+                  {hero.project.items[0].name}
                 </h3>
 
                 <Link
@@ -696,10 +684,7 @@ const Hero = () => {
                   cursor: "default",
                 }}
               >
-                A web-based application designed to streamline the enrolment of
-                batch numbers for Toll-supplied materials into the EXACT system.
-                Offering role-based access for easy submission, approval, and
-                tracking.
+                {hero.project.items[0].description}
               </p>
             </div>
           </div>
@@ -727,7 +712,7 @@ const Hero = () => {
               marginBottom: "15px",
             }}
           >
-            TECH STACK
+            {hero.techStack.title}
           </h2>
 
           {/* LOGO LOOP SECTION */}
@@ -771,7 +756,7 @@ const Hero = () => {
                         : "scale(1)",
                     filter:
                       isLogoLoopHovered && hoveredIndex === index
-                        ? "brightness(1.2) drop-shadow(0 0 4px #24FF45)"
+                        ? "brightness(1.2) drop-shadow(0 0 4px #4d4f4d)"
                         : "brightness(1)",
                     zIndex:
                       isLogoLoopHovered && hoveredIndex === index ? 10 : 1,
@@ -851,37 +836,29 @@ const Hero = () => {
                   lineHeight: "1.2",
                 }}
               >
-                Development <br />
-                Tools
+                {hero.techStack.categories.developmentTools.title}
               </h3>
               <div className="flex flex-wrap justify-center gap-2">
-                {[
-                  "VS Code",
-                  "XAMPP",
-                  "Windsurf",
-                  "Cursor",
-                  "Visual Studio",
-                  "Git",
-                  "Pycharm",
-                  "Github",
-                ].map((dev) => (
-                  <span
-                    key={dev}
-                    className="dev-tag"
-                    style={{
-                      fontFamily: "Readex Pro, sans-serif",
-                      fontWeight: "300",
-                      fontSize: "13px",
-                      color: "#EFEFEF",
-                      border: "1px solid #EFEFEF",
-                      borderRadius: "3px",
-                      padding: "2px 8px",
-                      display: "inline-block",
-                    }}
-                  >
-                    {dev}
-                  </span>
-                ))}
+                {hero.techStack.categories.developmentTools.items.map(
+                  (tool, index) => (
+                    <span
+                      key={index}
+                      className="dev-tag"
+                      style={{
+                        fontFamily: "Readex Pro, sans-serif",
+                        fontWeight: "300",
+                        fontSize: "13px",
+                        color: "#EFEFEF",
+                        border: "1px solid #EFEFEF",
+                        borderRadius: "3px",
+                        padding: "2px 8px",
+                        display: "inline-block",
+                      }}
+                    >
+                      {tool}
+                    </span>
+                  )
+                )}
               </div>
             </div>
 
@@ -908,184 +885,63 @@ const Hero = () => {
                   marginBottom: "10px",
                 }}
               >
-                Frontend
+                {hero.techStack.categories.frontend.title}
               </h3>
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  HTML
-                </span>
+              {hero.techStack.categories.frontend.skills.map((skill, index) => (
                 <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
+                  key={index}
+                  className="flex items-center justify-between mb-1"
                 >
+                  <span
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "400",
+                      fontSize: "13px",
+                      color: "#EFEFEF",
+                    }}
+                  >
+                    {skill.name}
+                  </span>
                   <div
                     style={{
-                      width: "60px",
+                      width: "80px",
                       height: "6px",
-                      backgroundColor: "#24FF45",
+                      backgroundColor: "#EFEFEF",
                       borderRadius: "3px",
-                      position: "absolute",
+                      position: "relative",
                     }}
-                  />
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  CSS
-                </span>
-                <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "60px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  JavaScript
-                </span>
-                <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "50px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  Tailwind CSS
-                </span>
-                <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "55px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  React.js
-                </span>
-                <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "40px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {["Bootstrap", "Material UI", "Vite", "HeroUI"].map(
-                  (frontend) => (
-                    <span
-                      key={frontend}
-                      className="frontend-tag"
+                  >
+                    <div
                       style={{
-                        fontFamily: "Readex Pro, sans-serif",
-                        fontWeight: "300",
-                        fontSize: "12px",
-                        color: "#EFEFEF",
-                        border: "1px solid #EFEFEF",
+                        width: `${skill.level}px`,
+                        height: "6px",
+                        backgroundColor: "#24FF45",
                         borderRadius: "3px",
-                        padding: "2px 8px",
-                        display: "inline-block",
+                        position: "absolute",
                       }}
-                    >
-                      {frontend}
-                    </span>
-                  )
-                )}
+                    />
+                  </div>
+                </div>
+              ))}
+              <div className="flex flex-wrap gap-2 mt-3">
+                {hero.techStack.categories.frontend.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="frontend-tag"
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "300",
+                      fontSize: "12px",
+                      color: "#EFEFEF",
+                      border: "1px solid #EFEFEF",
+                      borderRadius: "3px",
+                      padding: "2px 8px",
+                      display: "inline-block",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -1112,172 +968,50 @@ const Hero = () => {
                   marginBottom: "10px",
                 }}
               >
-                Backend
+                {hero.techStack.categories.backend.title}
               </h3>
 
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  PHP
-                </span>
+              {hero.techStack.categories.backend.skills.map((skill, index) => (
                 <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
+                  key={index}
+                  className="flex items-center justify-between mb-1"
                 >
-                  <div
-                    style={{
-                      width: "55px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  Python
-                </span>
-                <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "45px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  Java
-                </span>
-                <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "40px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  C++
-                </span>
-                <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "45px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between mb-1">
-                <span
-                  style={{
-                    fontFamily: "Readex Pro, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "13px",
-                    color: "#EFEFEF",
-                  }}
-                >
-                  VB.Net
-                </span>
-                <div
-                  style={{
-                    width: "80px",
-                    height: "6px",
-                    backgroundColor: "#EFEFEF",
-                    borderRadius: "3px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "30px",
-                      height: "6px",
-                      backgroundColor: "#24FF45",
-                      borderRadius: "3px",
-                      position: "absolute",
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {["MySQL", "C#"].map((frontend) => (
                   <span
-                    key={frontend}
+                    style={{
+                      fontFamily: "Readex Pro, sans-serif",
+                      fontWeight: "400",
+                      fontSize: "13px",
+                      color: "#EFEFEF",
+                    }}
+                  >
+                    {skill.name}
+                  </span>
+                  <div
+                    style={{
+                      width: "80px",
+                      height: "6px",
+                      backgroundColor: "#EFEFEF",
+                      borderRadius: "3px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: `${skill.level}px`,
+                        height: "6px",
+                        backgroundColor: "#24FF45",
+                        borderRadius: "3px",
+                        position: "absolute",
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+
+              <div className="flex flex-wrap gap-2 mt-3">
+                {hero.techStack.categories.backend.tags.map((tag, index) => (
+                  <span
+                    key={index}
                     className="backend-tag"
                     style={{
                       fontFamily: "Readex Pro, sans-serif",
@@ -1290,7 +1024,7 @@ const Hero = () => {
                       display: "inline-block",
                     }}
                   >
-                    {frontend}
+                    {tag}
                   </span>
                 ))}
               </div>
@@ -1319,13 +1053,13 @@ const Hero = () => {
                   marginBottom: "10px",
                 }}
               >
-                Design Tools
+                {hero.techStack.categories.designTools.title}
               </h3>
               <div className="flex flex-wrap justify-center gap-2 mt-3">
-                {["Canva", "Figma", "Adobe Photoshop", "Adobe Animate"].map(
-                  (frontend) => (
+                {content.hero.techStack.categories.designTools.items.map(
+                  (tool, index) => (
                     <span
-                      key={frontend}
+                      key={index}
                       className="design-tag"
                       style={{
                         fontFamily: "Readex Pro, sans-serif",
@@ -1338,7 +1072,7 @@ const Hero = () => {
                         display: "inline-block",
                       }}
                     >
-                      {frontend}
+                      {tool}
                     </span>
                   )
                 )}
@@ -1370,7 +1104,7 @@ const Hero = () => {
                 marginBottom: "10px",
               }}
             >
-              ACHIEVEMENTS
+              {hero.achievements.title}
             </h2>
 
             {/* Achievement 1 */}
@@ -1398,7 +1132,7 @@ const Hero = () => {
                     textAlign: "left",
                   }}
                 >
-                  Outstanding in Practicum
+                  {hero.achievements.items[0].title}
                 </h3>
                 <p
                   style={{
@@ -1411,8 +1145,7 @@ const Hero = () => {
                     marginBottom: "5px",
                   }}
                 >
-                  Recognized for outstanding performance and professionalism
-                  during On-the-Job Training at Am-Europharma Corporation.
+                  {hero.achievements.items[0].description}
                 </p>
               </div>
               <div
@@ -1437,7 +1170,7 @@ const Hero = () => {
                     color: "#EFEFEF",
                   }}
                 >
-                  2025
+                  {hero.achievements.items[0].year}
                 </span>
               </div>
             </div>
@@ -1466,7 +1199,7 @@ const Hero = () => {
                     textAlign: "left",
                   }}
                 >
-                  Dean's Lister
+                  {hero.achievements.items[1].title}
                 </h3>
                 <p
                   style={{
@@ -1479,7 +1212,7 @@ const Hero = () => {
                     marginBottom: "5px",
                   }}
                 >
-                  Achieved a General Weighted Average of 1.55
+                  {hero.achievements.items[1].description}
                 </p>
               </div>
               <div
@@ -1504,7 +1237,7 @@ const Hero = () => {
                     color: "#EFEFEF",
                   }}
                 >
-                  2024
+                  {hero.achievements.items[1].year}
                 </span>
               </div>
             </div>
@@ -1533,7 +1266,7 @@ const Hero = () => {
                     textAlign: "left",
                   }}
                 >
-                  Top Performing Student
+                  {hero.achievements.items[2].title}
                 </h3>
                 <p
                   style={{
@@ -1546,8 +1279,7 @@ const Hero = () => {
                     marginBottom: "5px",
                   }}
                 >
-                  Recognized for outstanding academic performance in the College
-                  of Computer Studies
+                  {hero.achievements.items[2].description}
                 </p>
               </div>
               <div
@@ -1572,14 +1304,14 @@ const Hero = () => {
                     color: "#EFEFEF",
                   }}
                 >
-                  2024
+                  {hero.achievements.items[2].year}
                 </span>
               </div>
             </div>
           </div>
 
+          {/* LEADERSHIP ROLE SECTION */}
           <div className="flex flex-col gap-3" style={{ width: "400px" }}>
-            {/* LEADERSHIP ROLE SECTION */}
             <div
               className="leadership-container flex flex-col bg-[#2A3A2B]"
               style={{
@@ -1601,7 +1333,7 @@ const Hero = () => {
                   marginBottom: "10px",
                 }}
               >
-                LEADERSHIP ROLE
+                {hero.leadership.title}
               </h2>
 
               <div className="flex items-start mb-3">
@@ -1624,7 +1356,7 @@ const Hero = () => {
                           transition: "color 0.3s ease",
                         }}
                       >
-                        Public Relations Officer (P.R.O)
+                        {hero.leadership.items[0].title}
                       </p>
                       <p
                         style={{
@@ -1636,7 +1368,7 @@ const Hero = () => {
                           transition: "color 0.3s ease",
                         }}
                       >
-                        UPHSD College of Computer Studies Student Council
+                        {hero.leadership.items[0].organization}
                       </p>
                     </div>
 
@@ -1662,7 +1394,7 @@ const Hero = () => {
                           color: "#EFEFEF",
                         }}
                       >
-                        2023 - 2025
+                        {hero.leadership.items[0].period}
                       </span>
                     </div>
                   </div>
@@ -1683,7 +1415,7 @@ const Hero = () => {
                           transition: "color 0.3s ease",
                         }}
                       >
-                        Business Manager
+                        {hero.leadership.items[1].title}
                       </p>
                       <p
                         style={{
@@ -1695,7 +1427,7 @@ const Hero = () => {
                           transition: "color 0.3s ease",
                         }}
                       >
-                        UPHSD College of Computer Studies Student Council
+                        {hero.leadership.items[1].organization}
                       </p>
                     </div>
 
@@ -1721,7 +1453,7 @@ const Hero = () => {
                           color: "#EFEFEF",
                         }}
                       >
-                        2022 - 2023
+                        {hero.leadership.items[1].period}
                       </span>
                     </div>
                   </div>
@@ -1751,7 +1483,7 @@ const Hero = () => {
                   marginBottom: "10px",
                 }}
               >
-                CONNECT
+                {hero.connect.title}
               </h2>
 
               <div className="phone flex items-center justify-between">
@@ -1832,7 +1564,7 @@ const Hero = () => {
                         color: "#EFEFEF",
                       }}
                     >
-                      arragenbasilio07@gmail.com
+                      {hero.connect.email}
                     </span>
                   </button>
                 </div>
@@ -1901,7 +1633,7 @@ const Hero = () => {
                 color: "#EFEFEF",
               }}
             >
-              2025 Arragen Basilio. All rights reserved.
+              {hero.footer.copyright}
             </p>
           </div>
         </div>
