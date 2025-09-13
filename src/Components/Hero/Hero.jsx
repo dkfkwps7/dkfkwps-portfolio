@@ -1466,7 +1466,7 @@ const Hero = () => {
               className="connect-container flex flex-col bg-[#2A3A2B] relative"
               style={{
                 width: "405px",
-                height: "115px",
+                height: "113px",
                 border: "#EFEFEF solid 1px",
                 borderRadius: "10px",
                 padding: "20px",
