@@ -58,6 +58,8 @@ const Hero = () => {
   });
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [animatedSkills, setAnimatedSkills] = useState({});
+  const techStackRef = useRef(null);
 
   useEffect(() => {
     if (!isPaused) {
@@ -98,6 +100,41 @@ const Hero = () => {
       }
     }
   }, [isPaused]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Start animation for all skills when tech stack container is in view
+          const frontendSkills = hero.techStack.categories.frontend.skills;
+          const backendSkills = hero.techStack.categories.backend.skills;
+          const allSkills = [...frontendSkills, ...backendSkills];
+
+          allSkills.forEach((skill, index) => {
+            setTimeout(() => {
+              setAnimatedSkills((prev) => ({
+                ...prev,
+                [skill.name]: true,
+              }));
+            }, index * 100);
+          });
+        }
+      });
+    });
+
+    if (techStackRef.current) {
+      observer.observe(techStackRef.current);
+    }
+
+    return () => {
+      if (techStackRef.current) {
+        observer.unobserve(techStackRef.current);
+      }
+    };
+  }, [
+    hero.techStack.categories.frontend.skills,
+    hero.techStack.categories.backend.skills,
+  ]);
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
@@ -692,6 +729,7 @@ const Hero = () => {
 
         {/* TECH STACK SECTION */}
         <div
+          ref={techStackRef}
           className="tech-stack-container flex flex-col bg-[var(--secondary-bg)] mb-3"
           style={{
             width: "800px",
@@ -913,11 +951,15 @@ const Hero = () => {
                   >
                     <div
                       style={{
-                        width: `${skill.level}px`,
+                        width: animatedSkills[skill.name]
+                          ? `${skill.level}px`
+                          : "0px",
                         height: "6px",
                         backgroundColor: "var(--green)",
                         borderRadius: "3px",
                         position: "absolute",
+                        transition: "width 0.8s ease-in-out",
+                        transitionDelay: `${index * 0.2}s`,
                       }}
                     />
                   </div>
@@ -997,11 +1039,19 @@ const Hero = () => {
                   >
                     <div
                       style={{
-                        width: `${skill.level}px`,
+                        width: animatedSkills[skill.name]
+                          ? `${skill.level}px`
+                          : "0px",
                         height: "6px",
                         backgroundColor: "var(--green)",
                         borderRadius: "3px",
                         position: "absolute",
+                        transition: "width 0.8s ease-in-out",
+                        transitionDelay: `${
+                          (hero.techStack.categories.frontend.skills.length +
+                            index) *
+                          0.2
+                        }s`,
                       }}
                     />
                   </div>
