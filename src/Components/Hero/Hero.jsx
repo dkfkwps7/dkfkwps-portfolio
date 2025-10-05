@@ -381,18 +381,27 @@ const Hero = () => {
               style={{ width: "250px", height: "50px" }}
             >
               <button
-                className="download-cv flex items-center justify-center mr-5 transition-all duration-300 hover:bg-[#d8d8d8] hover:scale-105"
+                className="download-cv flex items-center justify-center mr-5 transition-all duration-300 hover:scale-105"
                 style={{
                   width: "130px",
                   height: "33px",
-                  backgroundColor: "var(--white)",
+                  backgroundColor: "transparent",
                   fontFamily: "Readex Pro, sans-serif",
                   fontWeight: "Bold",
                   fontSize: "13px",
-                  color: "var(--black)",
+                  color: "var(--white)",
                   borderRadius: "4px",
-                  border: "none",
+                  border: "1px solid var(--white)",
                   cursor: "pointer",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "var(--white)";
+                  e.target.style.color = "var(--black)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.color = "var(--white)";
                 }}
                 onClick={handleDownloadCV}
               >
