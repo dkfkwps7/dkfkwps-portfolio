@@ -1665,7 +1665,7 @@ const Hero = () => {
         </div>
         {/* FOOTER SECTION */}
         <div
-          className="footer-container flex flex-col items-center mt-17 mb-10"
+          className="footer-container flex flex-col items-center mt-10 mb-10"
           style={{ width: "800px" }}
         >
           <div
