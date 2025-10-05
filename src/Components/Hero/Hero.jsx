@@ -312,7 +312,7 @@ const Hero = () => {
       <section className="about min-h-screen flex flex-col items-center bg-[var(--primary-bg)] animate-fadeInUp">
         {/* HEADER SECTION */}
         <div
-          className="header-container flex items-left justify-left mt-10 mb-10"
+          className="header-container flex items-left justify-left mt-10 mb-5"
           style={{
             width: "800px",
             height: "180px",
@@ -323,7 +323,7 @@ const Hero = () => {
             <img
               src={Profile}
               alt="Profile"
-              style={{ width: "190px", borderRadius: "10px" }}
+              style={{ width: "180px", borderRadius: "10px" }}
             />
           </div>
           <div
@@ -335,7 +335,7 @@ const Hero = () => {
               style={{
                 fontFamily: "Readex Pro, sans-serif",
                 fontWeight: "bold",
-                fontSize: "35px",
+                fontSize: "30px",
                 color: "var(--white)",
               }}
             >
@@ -417,7 +417,7 @@ const Hero = () => {
                   <img
                     src={Instagram}
                     alt="Instagram"
-                    style={{ width: "40px" }}
+                    style={{ width: "35px" }}
                   />
                 </a>
                 <a
@@ -426,7 +426,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={Github} alt="Github" style={{ width: "40px" }} />
+                  <img src={Github} alt="Github" style={{ width: "35px" }} />
                 </a>
                 <button
                   className="transition-all duration-300 hover:opacity-80 hover:scale-110 relative"
@@ -438,7 +438,7 @@ const Hero = () => {
                   }}
                   onClick={handleDiscordClick}
                 >
-                  <img src={Discord} alt="Discord" style={{ width: "40px" }} />
+                  <img src={Discord} alt="Discord" style={{ width: "35px" }} />
                 </button>
               </div>
             </div>
