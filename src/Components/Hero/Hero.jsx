@@ -450,10 +450,9 @@ const Hero = () => {
           className="about-container flex flex-col bg-[var(--secondary-bg)]"
           style={{
             width: "800px",
-            height: "315px",
             border: "var(--white) solid 1px",
             borderRadius: "10px",
-            padding: "20px",
+            padding: "20px 20px 3px 20px",
             cursor: "default",
           }}
         >
@@ -476,7 +475,7 @@ const Hero = () => {
               fontWeight: "300",
               fontSize: "13.5px",
               color: "var(--white)",
-              lineHeight: "1.4",
+              lineHeight: "1.5",
               textAlign: "justify",
             }}
           >
