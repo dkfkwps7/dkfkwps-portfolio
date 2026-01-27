@@ -409,7 +409,7 @@ const Hero = () => {
               </button>
               <div className="social-icons flex">
                 <a
-                  href="https://www.instagram.com/dkfkwps/"
+                  href="https://www.instagram.com/ara.jsx/"
                   className="mr-2.5 transition-all duration-300 hover:opacity-80 hover:scale-110"
                   target="_blank"
                   rel="noopener noreferrer"
